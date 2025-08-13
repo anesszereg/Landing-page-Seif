@@ -57,11 +57,12 @@ export default function RoadMapSection() {
 
   return (
     <motion.div 
+      id="roadmap"
       className="py-20 px-6 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      variants={fadeUpVariants}
+      variants={staggerChildrenVariants}
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start">
         {/* Left side - Roadmap */}

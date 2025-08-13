@@ -1,17 +1,17 @@
 'use client';
 
-import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { fadeUpVariants, slideFromLeftVariants, slideFromRightVariants, springyVariants } from '@/utils/animations';
+import { fadeUpVariants, slideFromLeftVariants } from '@/utils/animations';
 
 export default function Hero() {
   return (
     <motion.div 
-      className="flex flex-col px-4 sm:px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 items-center mb-8 sm:mb-16"
+      id="hero"
+      className="flex flex-col px-4 sm:px-6 py-12 sm:py-16 md:py-20 items-center mb-12 sm:mb-16 mt-16 sm:mt-20"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
     >
       {/* Heading */}
       <motion.div 

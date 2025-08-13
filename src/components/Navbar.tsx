@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,6 +9,17 @@ export default function Navbar() {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
+  // Smooth scroll function
+  const scrollToSection = useCallback((sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }, []);
   
   // Handle scroll effect
   useEffect(() => {
@@ -49,14 +60,16 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-30 bg-white w-full px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center border-b border-gray-100 transition-all ${scrolled ? 'shadow-md' : ''}`}>
       <div className="flex items-center">
-        <Image src="/assets/images/logo.png" alt="Logo" width={140} height={50} className="object-contain sm:w-[180px] md:w-[200px]" priority />
+        <Image src="/assets/images/logo.png" alt="Logo" width={140} height={10} className="object-cover sm:w-[160px] md:w-[180px] h-[50px]" priority />
       </div>
       
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-        <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">About</Link>
-        <Link href="/curriculum" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Curriculum</Link>
-        <Link href="/blog" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Blog</Link>
+        <button onClick={() => scrollToSection('hero')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Home</button>
+        <button onClick={() => scrollToSection('career-paths')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Career Paths</button>
+        <button onClick={() => scrollToSection('roadmap')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Roadmap</button>
+        <button onClick={() => scrollToSection('testimonials')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Testimonials</button>
+        <button onClick={() => scrollToSection('blog')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Blog</button>
         
         {/* More dropdown */}
         <div className="relative" onClick={(e) => e.stopPropagation()}>
@@ -143,27 +156,51 @@ export default function Navbar() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col py-2">
-              <Link 
-                href="/about" 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button 
+                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
+                onClick={() => {
+                  scrollToSection('hero');
+                  setIsMobileMenuOpen(false);
+                }}
               >
-                About
-              </Link>
-              <Link 
-                href="/curriculum" 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
+                Home
+              </button>
+              <button 
+                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
+                onClick={() => {
+                  scrollToSection('career-paths');
+                  setIsMobileMenuOpen(false);
+                }}
               >
-                Curriculum
-              </Link>
-              <Link 
-                href="/blog" 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
+                Career Paths
+              </button>
+              <button 
+                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
+                onClick={() => {
+                  scrollToSection('roadmap');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Roadmap
+              </button>
+              <button 
+                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
+                onClick={() => {
+                  scrollToSection('testimonials');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Testimonials
+              </button>
+              <button 
+                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
+                onClick={() => {
+                  scrollToSection('blog');
+                  setIsMobileMenuOpen(false);
+                }}
               >
                 Blog
-              </Link>
+              </button>
               <Link 
                 href="/resources" 
                 className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"

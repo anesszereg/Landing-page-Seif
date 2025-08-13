@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeUpVariants, slideFromLeftVariants, slideFromRightVariants, staggerChildrenVariants } from '@/utils/animations';
+import { fadeUpVariants, staggerChildrenVariants } from '@/utils/animations';
 
 // Blog post data
 const blogPosts = [
@@ -33,6 +33,7 @@ const blogPosts = [
 export default function BlogSection() {
   return (
     <motion.div 
+      id="blog"
       className="flex flex-col py-20 px-6 items-center"
       initial="hidden"
       whileInView="visible"

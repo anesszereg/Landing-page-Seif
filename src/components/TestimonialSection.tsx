@@ -72,7 +72,7 @@ export default function TestimonialSection() {
   const visibleTestimonials = showAll ? testimonials : testimonials.slice(0, 6);
 
   return (
-    <div className="py-20 px-6 bg-white">
+    <div id="testimonials" className="py-20 px-6 bg-white">
       <motion.div 
         className="max-w-6xl mx-auto"
         initial="hidden"

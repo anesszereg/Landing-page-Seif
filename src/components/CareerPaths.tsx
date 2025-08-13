@@ -6,6 +6,7 @@ import { fadeUpVariants, staggerChildrenVariants, rotateScaleVariants } from '@/
 export default function CareerPaths() {
   return (
     <motion.div 
+      id="career-paths"
       className="flex flex-col px-6 py-20 items-center"
       initial="hidden"
       whileInView="visible"

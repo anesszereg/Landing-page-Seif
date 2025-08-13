@@ -1,7 +1,5 @@
 'use client';
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUpVariants, slideFromLeftVariants, staggerChildrenVariants } from "@/utils/animations";
 import { useState } from 'react';
@@ -57,7 +55,7 @@ export default function Footer() {
                             className="text-gray-300 mb-4 sm:mb-6 text-left lg:text-end text-sm sm:text-base"
                             variants={fadeUpVariants}
                         >
-                            Whether you're a beginner taking your first steps or a seasoned learner
+                            Whether you&apos;re a beginner taking your first steps or a seasoned learner
                             aiming for fluency, our newsletter is your compass.
                         </motion.p>
                         <motion.form 

@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+
 import Hero from "@/components/Hero";
 import CareerPaths from "@/components/CareerPaths";
 import RoadMapSection from "@/components/RoadMapSection";
