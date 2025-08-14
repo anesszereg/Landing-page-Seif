@@ -38,11 +38,9 @@ export default function Hero() {
         
         {/* Absolute positioned elements */}
         <div className="absolute bg-white bottom-0 left-0 p-3 sm:p-6 z-10 flex items-center gap-2 rounded-tr-xl sm:rounded-tr-3xl">
-            <div className="bg-orange-500 text-black w-fit rounded-full p-1 sm:p-2">
-              <FaArrowRight className="text-xs sm:text-base" />
-            </div>
-          <button className="bg-black hover:bg-orange-600 text-white text-xs sm:text-sm py-1.5 sm:py-2 px-3 sm:px-5 rounded-full flex items-center gap-2 transition-colors">
-            Book A Session
+         
+          <button className="bg-black hover:bg-orange-600 text-white text-xs sm:text-sm py-1.5 sm:py-2 px-10 sm:px-5 rounded-full flex items-center gap-2 transition-colors">
+          Book Your Free Session
           </button>
         </div>
         

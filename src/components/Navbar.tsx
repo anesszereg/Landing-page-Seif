@@ -75,8 +75,8 @@ export default function Navbar() {
       </div>
       
       {/* Center Navigation - Desktop */}
-      <div className="hidden md:block">
-        <div className="border border-gray-200 rounded-full px-4 py-1 flex items-center space-x-8">
+      <div className="hidden md:block ml-50">
+        <div className="border border-yellow-400 rounded-full px-4 py-1 flex items-center space-x-8">
           <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">About</button>
           <button onClick={() => scrollToSection('learn')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Learn</button>
           <button onClick={() => scrollToSection('blog')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Blog</button>
@@ -87,7 +87,7 @@ export default function Navbar() {
       <div className="hidden md:flex items-center space-x-4">
         <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Contact Us</button>
         
-        <Link href="/book" className="bg-yellow-400 text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+        <Link href="/book" className="bg-yellow-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
           Book Your Free Session
         </Link>
         
