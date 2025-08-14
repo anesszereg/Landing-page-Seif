@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <motion.div 
       id="hero"
-      className="flex flex-col px-4 sm:px-6 py-12 sm:py-16 md:py-20 items-center mb-12 sm:mb-16 mt-16 sm:mt-20"
+      className="flex flex-col px-4 sm:px-6 py-12 sm:py-16 md:py-20 items-center mb-12 sm:mb-16 mt-16 sm:mt-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
