@@ -93,7 +93,7 @@ export default function RoadMapSection() {
             {courseItems.map((item, index) => (
               <motion.div 
                 key={item.id} 
-                className="border-t border-line"
+                className="border-t border-line "
                 variants={fadeUpVariants}
                 custom={index * 0.1}
               >
@@ -114,7 +114,7 @@ export default function RoadMapSection() {
                       <p className="text-black">{item.description}</p>
                     </motion.div>
                   </div>
-                  <button className="text-green-500 ml-4 flex-shrink-0">
+                  <button className="text-[#FFD370] ml-4 flex-shrink-0">
                     <motion.svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="24" 

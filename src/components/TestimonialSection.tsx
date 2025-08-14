@@ -86,10 +86,12 @@ export default function TestimonialSection() {
           variants={fadeUpVariants}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4"
             variants={fadeUpVariants}
           >
-            Discover why 10,000+ learners choose Langua for building real-world fluency
+            Discover why 10,000+ learners choose 
+            <span className="text-[#FBBF24]"> Spanish with Seif </span>
+             for building real-world fluency
           </motion.h2>
         </motion.div>
         

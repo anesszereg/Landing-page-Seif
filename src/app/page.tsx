@@ -4,6 +4,7 @@ import CareerPaths from "@/components/CareerPaths";
 import RoadMapSection from "@/components/RoadMapSection";
 import BlogSection from "@/components/BlogSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import TeamSection from "@/components/TeamSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <CareerPaths />
       <RoadMapSection />
       <TestimonialSection />
+      <TeamSection />
       <BlogSection />
       <Footer />
     </div>

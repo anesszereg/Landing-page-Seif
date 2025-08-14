@@ -8,7 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-line :#8BC7AD;
+  --color-line :#FBBF24;
   --color-footer:rgba(37, 40, 43, 1)  ;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

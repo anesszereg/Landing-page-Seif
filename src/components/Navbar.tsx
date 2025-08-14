@@ -6,9 +6,9 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
-  const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('en');
   
   // Smooth scroll function
   const scrollToSection = useCallback((sectionId: string) => {
@@ -35,11 +35,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close more dropdown when mobile menu opens
+  // Close mobile menu on resize
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      setIsMoreOpen(false);
-    }
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [isMobileMenuOpen]);
 
   // Close mobile menu when clicking outside
@@ -48,75 +53,50 @@ export default function Navbar() {
       if (isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
       }
-      if (isMoreOpen) {
-        setIsMoreOpen(false);
-      }
     };
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
-  }, [isMobileMenuOpen, isMoreOpen]);
+  }, [isMobileMenuOpen]);
   
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-30 bg-white w-full px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center border-b border-gray-100 transition-all ${scrolled ? 'shadow-md' : ''}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-30 bg-white w-full px-4 sm:px-6 py-3 flex justify-between items-center border-b border-gray-100 transition-all ${scrolled ? 'shadow-md' : ''}`}>
+      {/* Logo */}
       <div className="flex items-center">
-        <Image src="/assets/images/logo.png" alt="Logo" width={140} height={10} className="object-cover sm:w-[160px] md:w-[180px] h-[50px]" priority />
-      </div>
-      
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-        <button onClick={() => scrollToSection('hero')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Home</button>
-        <button onClick={() => scrollToSection('career-paths')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Career Paths</button>
-        <button onClick={() => scrollToSection('roadmap')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Roadmap</button>
-        <button onClick={() => scrollToSection('testimonials')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Testimonials</button>
-        <button onClick={() => scrollToSection('blog')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Blog</button>
-        
-        {/* More dropdown */}
-        <div className="relative" onClick={(e) => e.stopPropagation()}>
-          <button 
-            className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsMoreOpen(!isMoreOpen);
-            }}
-          >
-            More
-            <svg xmlns="http://www.w3.org/2000/svg" className={`ml-1 h-4 w-4 transition-transform ${isMoreOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          
-          {/* Dropdown menu */}
-          <AnimatePresence>
-            {isMoreOpen && (
-              <motion.div 
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Link href="/resources" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  Resources
-                </Link>
-                <Link href="/faq" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  FAQ
-                </Link>
-                <Link href="/contact" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  Contact Us
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <div className="flex items-center">
+          <div className="bg-yellow-400 rounded-full w-10 h-10 flex items-center justify-center mr-2">
+            <span className="text-black font-bold text-lg">S</span>
+          </div>
+          <div>
+            <div className="font-medium text-gray-800">Spanish</div>
+            <div className="text-sm text-gray-600">with Seif</div>
+          </div>
         </div>
       </div>
       
-      {/* Desktop CTA */}
+      {/* Center Navigation - Desktop */}
       <div className="hidden md:block">
-        <Link href="/enroll" className="bg-gray-900 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors">
-          Enroll
+        <div className="border border-gray-200 rounded-full px-4 py-1 flex items-center space-x-8">
+          <button onClick={() => scrollToSection('about')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">About</button>
+          <button onClick={() => scrollToSection('learn')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Learn</button>
+          <button onClick={() => scrollToSection('blog')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Blog</button>
+        </div>
+      </div>
+      
+      {/* Right Side - Desktop */}
+      <div className="hidden md:flex items-center space-x-4">
+        <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Contact Us</button>
+        
+        <Link href="/book" className="bg-yellow-400 text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+          Book Your Free Session
         </Link>
+        
+        <button className="flex items-center">
+          <Image src="/assets/images/en-flag.svg" alt="English" width={24} height={16} className="rounded" />
+          <svg xmlns="http://www.w3.org/2000/svg" className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
       </div>
 
       {/* Mobile Menu Button */}
@@ -159,38 +139,20 @@ export default function Navbar() {
               <button 
                 className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
                 onClick={() => {
-                  scrollToSection('hero');
+                  scrollToSection('about');
                   setIsMobileMenuOpen(false);
                 }}
               >
-                Home
+                About
               </button>
               <button 
                 className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
                 onClick={() => {
-                  scrollToSection('career-paths');
+                  scrollToSection('learn');
                   setIsMobileMenuOpen(false);
                 }}
               >
-                Career Paths
-              </button>
-              <button 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
-                onClick={() => {
-                  scrollToSection('roadmap');
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Roadmap
-              </button>
-              <button 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
-                onClick={() => {
-                  scrollToSection('testimonials');
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Testimonials
+                Learn
               </button>
               <button 
                 className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
@@ -201,36 +163,33 @@ export default function Navbar() {
               >
                 Blog
               </button>
-              <Link 
-                href="/resources" 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Resources
-              </Link>
-              <Link 
-                href="/faq" 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                FAQ
-              </Link>
-              <Link 
-                href="/contact" 
-                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button 
+                className="px-6 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 text-left w-full"
+                onClick={() => {
+                  scrollToSection('contact');
+                  setIsMobileMenuOpen(false);
+                }}
               >
                 Contact Us
-              </Link>
+              </button>
+              
+              {/* Language Selection */}
+              <div className="px-6 py-3 text-sm font-medium text-gray-700 flex items-center">
+                <span className="mr-3">Language:</span>
+                <button className="flex items-center">
+                  <Image src="/assets/images/en-flag.svg" alt="English" width={24} height={16} className="rounded" />
+                  <span className="ml-2">English</span>
+                </button>
+              </div>
               
               {/* Mobile CTA */}
               <div className="px-6 py-4">
                 <Link 
-                  href="/enroll" 
-                  className="block w-full bg-gray-900 text-white px-5 py-2 rounded-md text-center text-sm font-medium hover:bg-gray-800 transition-colors"
+                  href="/book" 
+                  className="block w-full bg-yellow-400 text-black px-5 py-2 rounded-full text-center text-sm font-medium hover:bg-yellow-500 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Enroll
+                  Book Your Free Session
                 </Link>
               </div>
             </div>
