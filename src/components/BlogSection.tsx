@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { fadeUpVariants, staggerChildrenVariants } from '@/utils/animations';
 import { useTranslation } from '@/context/TranslationContext';
 
-// Blog post data
-const blogPosts = (t: any) => [
+// Blog post data without custom type definition
+const blogPosts = (t: ReturnType<typeof useTranslation>['t']) => [
   {
     id: 1,
     title: t('blog.post1.title'),

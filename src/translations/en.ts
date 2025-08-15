@@ -1,4 +1,4 @@
-export default {
+const englishTranslations = {
   // Navbar
   'navbar.about': 'About',
   'navbar.learn': 'Learn',
@@ -76,3 +76,5 @@ export default {
   'roadmap.course.06.title': 'Native-Like Fluency',
   'roadmap.course.06.description': 'Refine your skills to communicate at a near-native level.',
 };
+
+export default englishTranslations;

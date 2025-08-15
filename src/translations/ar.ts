@@ -1,4 +1,4 @@
-export default {
+const arabicTranslations = {
   // Navbar
   'navbar.about': 'حول',
   'navbar.learn': 'تعلم',
@@ -76,3 +76,5 @@ export default {
   'roadmap.course.06.title': 'الطلاقة شبه الأصلية',
   'roadmap.course.06.description': 'صقل مهاراتك للتواصل بمستوى قريب من المتحدثين الأصليين.',
 };
+
+export default arabicTranslations;

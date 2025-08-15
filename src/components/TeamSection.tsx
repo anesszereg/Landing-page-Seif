@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeUpVariants, scaleVariants, staggerChildrenVariants, slideFromLeftVariants } from '@/utils/animations';
+import { fadeUpVariants, scaleVariants, staggerChildrenVariants } from '@/utils/animations';
 import { useTranslation } from '@/context/TranslationContext';
 
 const TeamSection = () => {

@@ -1,6 +1,7 @@
 'use client';
 
-import { FaArrowRight } from 'react-icons/fa';
+// Import icons if needed in the future
+// import { FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { fadeUpVariants, slideFromLeftVariants } from '@/utils/animations';
 import { useTranslation } from '@/context/TranslationContext';
