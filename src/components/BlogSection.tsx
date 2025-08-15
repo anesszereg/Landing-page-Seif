@@ -4,33 +4,35 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeUpVariants, staggerChildrenVariants } from '@/utils/animations';
+import { useTranslation } from '@/context/TranslationContext';
 
 // Blog post data
-const blogPosts = [
+const blogPosts = (t: any) => [
   {
     id: 1,
-    title: "Speak Like a Native: Mastering Pronunciation and Intonation",
-    category: "Fluency Seekers",
-    image: "/assets/images/blog_1.png",
+    title: t('blog.post1.title'),
+    category: t('blog.post1.category'),
+    image: "/assets/images/blog_1.webp",
     imageAlt: "People talking in a café",
   },
   {
     id: 2,
-    title: "Ace Your Spanish Job Interview: From '¡hola!' to Salary Talks",
-    category: "Career Builders",
-    image: "/assets/images/blog_2.png"  ,
+    title: t('blog.post2.title'),
+    category: t('blog.post2.category'),
+    image: "/assets/images/blog_2.webp"  ,
     imageAlt: "Two professionals having a conversation",
   },
   {
     id: 3,
-    title: "Ace your exams with our carefully crafted lessons and assignments",
-    category: "Highschool Students",
-    image: "/assets/images/blog_3.png",
+    title: t('blog.post3.title'),
+    category: t('blog.post3.category'),
+    image: "/assets/images/blog_3.webp",
     imageAlt: "Coffee cup with Spanish drawings",
   }
 ];
 
 export default function BlogSection() {
+  const { t } = useTranslation();
   return (
     <motion.div 
       id="blog"
@@ -52,10 +54,10 @@ export default function BlogSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900"
             variants={fadeUpVariants}
           >
-            Learning resources that bring<br />language to life
+            {t('blog.title')}
           </motion.h2>
           <Link href="/blog" className="flex items-center text-gray-600 hover:text-gray-900 hover:translate-x-2 transition-all duration-300">
-            <span>View all articles</span>
+            <span>{t('blog.readMore')}</span>
             <svg className="ml-2 w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -67,7 +69,7 @@ export default function BlogSection() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
           variants={staggerChildrenVariants}
         >
-          {blogPosts.map((post, index) => (
+          {blogPosts(t).map((post, index) => (
             <motion.div 
               key={post.id} 
               className="flex flex-col h-full bg-white rounded-2xl hover:-translate-y-4  transition-all duration-300"

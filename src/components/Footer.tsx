@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants, slideFromLeftVariants, staggerChildrenVariants } from "@/utils/animations";
 import { useState } from 'react';
+import { useTranslation } from '@/context/TranslationContext';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
+    const { t } = useTranslation();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -55,8 +57,7 @@ export default function Footer() {
                             className="text-gray-300 mb-4 sm:mb-6 text-left lg:text-end text-sm sm:text-base"
                             variants={fadeUpVariants}
                         >
-                            Whether you&apos;re a beginner taking your first steps or a seasoned learner
-                            aiming for fluency, our newsletter is your compass.
+                            {t('footer.newsletter')}
                         </motion.p>
                         <motion.form 
                             onSubmit={handleSubmit} 
@@ -66,7 +67,7 @@ export default function Footer() {
                         >
                             <input
                                 type="email"
-                                placeholder="name@email.com"
+                                placeholder={t('footer.email.placeholder')}
                                 className="flex-grow  text-gray-800 px-3 sm:px-4 py-2 rounded-full focus:outline-none text-sm sm:text-base"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +79,7 @@ export default function Footer() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                Subscribe
+                                {t('footer.subscribe')}
                             </motion.button>
                         </motion.form>
                     </motion.div>
@@ -210,7 +211,7 @@ export default function Footer() {
                     whileInView="visible"
                     viewport={{ once: true }}
                 >
-                    <p>&copy; {new Date().getFullYear()} Linguify. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Linguify. {t('footer.rights')}</p>
                 </motion.div>
             </motion.div>
         </motion.footer>

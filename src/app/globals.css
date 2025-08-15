@@ -13,7 +13,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --background-section21: url('/assets/images/section_2_1.jpg');
+  --background-section21: url('/assets/images/section_2_1.webp');
 }
 
 @media (prefers-color-scheme: dark) {

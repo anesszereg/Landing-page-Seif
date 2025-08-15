@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion";
 import { fadeUpVariants, slideFromLeftVariants, slideFromRightVariants, staggerChildrenVariants } from "@/utils/animations";
+import { useTranslation } from '@/context/TranslationContext';
 
 type CourseItem = {
   id: string;
@@ -13,37 +14,38 @@ type CourseItem = {
 
 export default function RoadMapSection() {
   const [expandedItem, setExpandedItem] = useState<string | null>('01');
+  const { t } = useTranslation();
   
   const courseItems: CourseItem[] = [
     {
       id: '01',
-      title: 'Foundations',
-      description: 'Master basic greetings, and essential survival phrases.'
+      title: t('roadmap.course.01.title'),
+      description: t('roadmap.course.01.description')
     },
     {
       id: '02',
-      title: 'Daily Conversations',
-      description: 'Learn vocabulary and phrases for everyday situations.'
+      title: t('roadmap.course.02.title'),
+      description: t('roadmap.course.02.description')
     },
     {
       id: '03',
-      title: 'Expanding Horizons',
-      description: 'Develop your vocabulary and grammar for more complex conversations.'
+      title: t('roadmap.course.03.title'),
+      description: t('roadmap.course.03.description')
     },
     {
       id: '04',
-      title: 'Practical Mastery',
-      description: 'Apply your skills in real-world scenarios and cultural contexts.'
+      title: t('roadmap.course.04.title'),
+      description: t('roadmap.course.04.description')
     },
     {
       id: '05',
-      title: 'Advanced Communication',
-      description: 'Perfect your fluency and tackle complex topics with confidence.'
+      title: t('roadmap.course.05.title'),
+      description: t('roadmap.course.05.description')
     },
     {
       id: '06',
-      title: 'Native-Like Fluency',
-      description: 'Refine your skills to communicate at a near-native level.'
+      title: t('roadmap.course.06.title'),
+      description: t('roadmap.course.06.description')
     },
   ];
 
@@ -74,15 +76,14 @@ export default function RoadMapSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
             variants={fadeUpVariants}
           >
-            Roadmap to Spanish mastery
+            {t('roadmap.title')}
           </motion.h2>
           
           <motion.p 
             className="text-gray-600 mb-12 max-w-xl"
             variants={fadeUpVariants}
           >
-            Take the first step towards mastering Spanish. Discover our structured courses designed 
-            to elevate your skills.
+            {t('roadmap.description')}
           </motion.p>
           
           {/* Course items */}
@@ -155,7 +156,7 @@ export default function RoadMapSection() {
             transition={{ duration: 0.3 }}
           >
             <Image
-              src="/assets/images/section_3.png" 
+              src="/assets/images/section_3.webp" 
               alt="Student learning Spanish"
               width={500}
               height={600}

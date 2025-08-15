@@ -3,23 +3,31 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeUpVariants, scaleVariants, staggerChildrenVariants, slideFromLeftVariants } from '@/utils/animations';
+import { useTranslation } from '@/context/TranslationContext';
 
 const TeamSection = () => {
+  const { t } = useTranslation();
+  
+  // Define translation key types to fix TypeScript errors
+  type TeamMemberKey = 'team.seif.role' | 'team.seif.description' | 'team.nada.role' | 'team.nada.description' | 'team.feriel.role' | 'team.feriel.description';
   const teamMembers = [
     {
       name: 'Seif',
-      role: "I'm Seif,",
-      description: "my aim is to get you speaking Spanish with pleasure, efficiency and confidence, right from the start."
+      roleKey: 'team.seif.role' as TeamMemberKey,
+      descriptionKey: 'team.seif.description' as TeamMemberKey,
+      image: '/assets/Team/Seif2.webp'
     },
     {
       name: 'Katret Nada',
-      role: "I'm Nada,",
-      description: "my aim is to get you speaking Spanish with pleasure, efficiency and confidence, right from the start."
+      roleKey: 'team.nada.role' as TeamMemberKey,
+      descriptionKey: 'team.nada.description' as TeamMemberKey,
+      image: '/assets/Team/Katret Nada.webp'
     },
     {
       name: 'Feriel',
-      role: "I'm Feriel,",
-      description: "my aim is to get you speaking Spanish with pleasure, efficiency and confidence, right from the start."
+      roleKey: 'team.feriel.role' as TeamMemberKey,
+      descriptionKey: 'team.feriel.description' as TeamMemberKey,
+      image: '/assets/Team/Feriel.webp'
     }
   ];
 
@@ -37,15 +45,14 @@ const TeamSection = () => {
           variants={fadeUpVariants}
           custom={0}
         >
-          Meet Our Team
+          {t('team.title')}
         </motion.h2>
         <motion.p 
           className="max-w-3xl mx-auto text-gray-700"
           variants={fadeUpVariants}
           custom={1}
         >
-          Our team of experienced language instructors is dedicated to helping you achieve your language learning goals. Each 
-          instructor brings a unique approach and expertise to create an engaging and effective learning experience.
+          {t('team.description')}
         </motion.p>
       </motion.div>
       
@@ -80,20 +87,28 @@ const TeamSection = () => {
         {teamMembers.map((member, index) => (
           <motion.div 
             key={index} 
-            className="flex flex-col items-center"
+            className="flex flex-col items-center "
             variants={fadeUpVariants}
             custom={index + 3}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
           >
             <motion.div 
-              className="w-full aspect-square bg-yellow-300 rounded-lg mb-4"
+              className="w-full aspect-square rounded-lg mb-4 overflow-hidden relative"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.2 }}
-            ></motion.div>
-            <h3 className="font-semibold text-xl mb-1">{member.name}</h3>
+            >
+              <Image 
+                src={member.image} 
+                alt={`${member.name} - Spanish instructor`}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-center"
+              />
+            </motion.div>
+            <h3 className="font-semibold text-black text-xl mb-1">{member.name}</h3>
             <p className="text-center text-gray-700">
-              {member.role} {member.description}
+              {t(member.roleKey)} {t(member.descriptionKey)}
             </p>
           </motion.div>
         ))}

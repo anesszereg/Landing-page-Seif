@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { fadeUpVariants, staggerChildrenVariants, rotateScaleVariants } from '@/utils/animations';
+import { useTranslation } from '@/context/TranslationContext';
 
 export default function CareerPaths() {
+  const { t } = useTranslation();
   return (
     <motion.div 
       id="career-paths"
@@ -22,7 +24,7 @@ export default function CareerPaths() {
           className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900"
           variants={fadeUpVariants}
         >
-          Find the path that aligns<br />with your aspirations.
+          {t('careerPaths.title')}
         </motion.h2>
       </motion.div>
       
@@ -33,7 +35,7 @@ export default function CareerPaths() {
       >
         {/* Card 1 - Cultural Explorers */}
         <motion.div 
-          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_1.jpg')] bg-cover bg-center flex items-end -rotate-4"
+          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_1.webp')] bg-cover bg-center flex items-end "
           variants={rotateScaleVariants}
           custom={0}
         >
@@ -48,16 +50,16 @@ export default function CareerPaths() {
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl text-black font-bold mb-2">The Cultural Explorers</h3>
+            <h3 className="text-xl text-black font-bold mb-2">{t('careerPaths.cultural.title')}</h3>
             <p className="text-gray-700">
-              Perfect for travelers and culture enthusiasts who want to connect more deeply with Spanish
+              {t('careerPaths.cultural.description')}
             </p>
           </motion.div>
         </motion.div>
         
         {/* Card 2 - Career Builder */}
         <motion.div 
-          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_2.png')] bg-cover bg-center flex items-end -translate-y-4"
+          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_2.webp')] bg-cover bg-center flex items-end"
           variants={rotateScaleVariants}
           custom={1}
         >
@@ -69,16 +71,16 @@ export default function CareerPaths() {
             transition={{ delay: 0.4, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl text-black font-bold mb-2">The Career Builder</h3>
+            <h3 className="text-xl text-black font-bold mb-2">{t('careerPaths.career.title')}</h3>
             <p className="text-gray-700">
-              For professionals who need Spanish to advance their career or open up new opportunities
+              {t('careerPaths.career.description')}
             </p>
           </motion.div>
         </motion.div>
 
         {/* Card 3 - Academic Achiever */}
         <motion.div 
-          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_3.jpg')] bg-cover bg-center flex items-end rotate-5"
+          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_3.webp')] bg-cover bg-center flex items-end"
           variants={rotateScaleVariants}
           custom={2}
         >
@@ -90,9 +92,9 @@ export default function CareerPaths() {
             transition={{ delay: 0.5, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl text-black font-bold mb-2">The Academic Achiever</h3>
+            <h3 className="text-xl text-black font-bold mb-2">{t('careerPaths.academic.title')}</h3>
             <p className="text-gray-700">
-              For students preparing for exams or academic requirements with structured learning
+              {t('careerPaths.academic.description')}
             </p>
           </motion.div>
         </motion.div>

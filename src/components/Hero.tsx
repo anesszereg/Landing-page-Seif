@@ -3,8 +3,10 @@
 import { FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { fadeUpVariants, slideFromLeftVariants } from '@/utils/animations';
+import { useTranslation } from '@/context/TranslationContext';
 
 export default function Hero() {
+  const { t, currentLanguage } = useTranslation();
   return (
     <motion.div 
       id="hero"
@@ -19,10 +21,10 @@ export default function Hero() {
         variants={fadeUpVariants}
       >
         <motion.h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
           variants={slideFromLeftVariants}
         >
-          Your Journey to Spanish Fluency Starts Here
+          {t('hero.title')}
         </motion.h1>
       </motion.div>
       
@@ -32,7 +34,7 @@ export default function Hero() {
         <div
           className="w-full h-[250px] sm:h-[300px] md:h-[400px] bg-cover bg-center rounded-2xl sm:rounded-3xl"
           style={{
-            backgroundImage: "url('/assets/images/hero_section_image.png')"
+            backgroundImage: "url('/assets/images/hero_section_image.webp')"
           }}
         ></div>
         
@@ -40,14 +42,22 @@ export default function Hero() {
         <div className="absolute bg-white bottom-0 left-0 p-3 sm:p-6 z-10 flex items-center gap-2 rounded-tr-xl sm:rounded-tr-3xl">
          
           <button className="bg-black hover:bg-orange-600 text-white text-xs sm:text-sm py-1.5 sm:py-2 px-10 sm:px-5 rounded-full flex items-center gap-2 transition-colors">
-          Book Your Free Session
+          {t('hero.cta')}
           </button>
         </div>
         
         {/* Stats badge */}
         <div className="absolute bottom-2 sm:bottom-6 right-2 sm:right-6 bg-gray-200/50 backdrop-blur-sm p-2 sm:p-4 rounded-lg sm:rounded-xl text-center">
           <div className="text-xl sm:text-3xl font-bold text-gray-800">89%</div>
-          <div className="text-xs sm:text-sm text-gray-700">Pass rate of<br />students in their<br />BAC exams</div>
+          <div className="text-xs sm:text-sm text-gray-700">
+            {currentLanguage === 'fr' ? (
+              <>Taux de réussite<br />des élèves aux<br />épreuves du BAC</>
+            ) : currentLanguage === 'ar' ? (
+              <>معدل نجاح<br />الطلاب في<br />امتحانات البكالوريا</>
+            ) : (
+              <>Pass rate of<br />students in their<br />BAC exams</>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeUpVariants, staggerChildrenVariants, springyVariants } from '@/utils/animations';
+import { useTranslation } from '@/context/TranslationContext';
 
 // Testimonial data
 interface Testimonial {
@@ -17,55 +18,56 @@ interface Testimonial {
 
 export default function TestimonialSection() {
   const [showAll, setShowAll] = useState(false);
+  const { t } = useTranslation();
   
   const testimonials: Testimonial[] = [
     {
       id: 1,
       name: "Leslie M",
       rating: 5,
-      comment: "Langua rocks! I've tried Babbel and others and there is no comparison. Langua's AI chat feature is rapidly allowing me to get over my fear of speaking French and improving my abilities. The flashcards are the best vocab builder I've used...",
+      comment: t('testimonial.comment.1'),
       date: "Feb 28, 2024",
-      avatar: "/assets/images/avatar-1.png"
+      avatar: "/assets/images/avatar-1.webp"
     },
     {
       id: 2,
       name: "Maria C",
       rating: 5,
-      comment: "I LOVE Langua! I've been using it daily for months. The chat feature is fantastic - it feels like talking to a real, empathetic language partner who corrects me and suggests more advanced phrasing. It's pressure-free and I'm...",
+      comment: t('testimonial.comment.2'),
       date: "Jun 19, 2025",
-      avatar: "/assets/images/avatar-2.png"
+      avatar: "/assets/images/avatar-2.webp"
     },
     {
       id: 3,
       name: "Chris S",
       rating: 5,
-      comment: "This is by far the best language learning app I have tried - and I've tried many! I need to learn very Mexico-specific Spanish, and this app gets insanely granular with extremely localized info about meanings, usage, even slang. It's...",
+      comment: t('testimonial.comment.3'),
       date: "Apr 18, 2025",
-      avatar: "/assets/images/avatar-3.png"
+      avatar: "/assets/images/avatar-3.webp"
     },
     {
       id: 4,
       name: "Gaelle",
       rating: 5,
-      comment: "As a language teacher, I find langua far more effective than apps like duolingo, which my husband uses for french. With its realistic conversations and flexibility to focus on whatever topics interest me, Langua is a game...",
+      comment: t('testimonial.comment.4'),
       date: "Mar 26, 2024",
-      avatar: "/assets/images/avatar-4.png"
+      avatar: "/assets/images/avatar-4.webp"
     },
     {
       id: 5,
       name: "Kathy",
       rating: 5,
-      comment: "Langua is fantastic. I've tried Babbel and Duolingo and I find Langua far more useful. The AI conversation is the best!!",
+      comment: t('testimonial.comment.5'),
       date: "Feb 2, 2024",
-      avatar: "/assets/images/avatar-5.png"
+      avatar: "/assets/images/avatar-5.webp"
     },
     {
       id: 6,
       name: "Harriet Waninge",
       rating: 5,
-      comment: "Langua excels in leveraging AI in ways other language learning apps don't. For instance, the option to save words from the conversation as spaced repetition flashcards is so useful. Then there's the grammar practice mode in which...",
+      comment: t('testimonial.comment.6'),
       date: "Aug 26, 2024",
-      avatar: "/assets/images/avatar-6.png"
+      avatar: "/assets/images/avatar-6.webp"
     }
   ];
 
@@ -89,10 +91,14 @@ export default function TestimonialSection() {
             className="text-3xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4"
             variants={fadeUpVariants}
           >
-            Discover why 10,000+ learners choose 
-            <span className="text-[#FBBF24]"> Spanish with Seif </span>
-             for building real-world fluency
+            {t('testimonial.title')}
           </motion.h2>
+          <motion.p 
+            className="text-gray-600 max-w-2xl mx-auto"
+            variants={fadeUpVariants}
+          >
+            {t('testimonial.description')}
+          </motion.p>
         </motion.div>
         
         {/* Testimonial grid */}
@@ -147,7 +153,7 @@ export default function TestimonialSection() {
               {/* Read more link */}
               <div className="flex justify-between items-center">
                 <button className="text-gray-600 hover:text-gray-900 text-sm font-medium">
-                  Read more
+                  {t('blog.readMore')}
                 </button>
                 <span className="text-gray-500 text-sm">{testimonial.date}</span>
               </div>
