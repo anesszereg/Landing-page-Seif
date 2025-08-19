@@ -35,8 +35,9 @@ export default function CareerPaths() {
       >
         {/* Card 1 - Cultural Explorers */}
         <motion.div 
-          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_1.webp')] bg-cover bg-center flex items-end "
+          className="relative hover:cursor-pointer rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_1.webp')] bg-cover bg-center flex items-end "
           variants={rotateScaleVariants}
+          onClick={() => window.location.href = '/group-class'}
           custom={0}
         >
           {/* Background image */}
@@ -59,9 +60,10 @@ export default function CareerPaths() {
         
         {/* Card 2 - Career Builder */}
         <motion.div 
-          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_2.webp')] bg-cover bg-center flex items-end"
+          className="relative hover:cursor-pointer rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_2.webp')] bg-cover bg-center flex items-end"
           variants={rotateScaleVariants}
           custom={1}
+          onClick={() => window.location.href = '/private'}
         >
           {/* Text overlay with backdrop */}
           <motion.div 
@@ -80,9 +82,10 @@ export default function CareerPaths() {
 
         {/* Card 3 - Academic Achiever */}
         <motion.div 
-          className="relative rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_3.webp')] bg-cover bg-center flex items-end"
+          className="relative hover:cursor-pointer rounded-3xl p-2 overflow-hidden h-[400px] transform transition-transform hover:scale-[1.02] duration-300 shadow-l bg-[url('/assets/images/section_2_3.webp')] bg-cover bg-center flex items-end"
           variants={rotateScaleVariants}
           custom={2}
+          onClick={() => window.location.href = '/young-learners'}
         >
           {/* Text overlay with backdrop */}
           <motion.div 

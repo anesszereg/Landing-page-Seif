@@ -72,14 +72,14 @@ export const metadata: Metadata = {
     google: "google-site-verification-code", // Replace with your actual verification code
   },
   icons: {
-    icon: '/assets/images/Logo.webp',
-    shortcut: '/assets/images/Logo.webp',
-    apple: '/assets/images/Logo.webp',
+    icon: '/assets/images/favIcon.png',
+    shortcut: '/assets/images/favIcon.png',
+    apple: '/assets/images/favIcon.png',
     other: [
       {
         rel: 'icon',
-        type: 'image/svg+xml',
-        url: '/assets/images/Logo.webp',
+        type: 'image/png',
+        url: '/assets/images/favIcon.png',
       },
     ],
   },

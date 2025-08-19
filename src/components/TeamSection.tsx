@@ -58,7 +58,7 @@ const TeamSection = () => {
       
       {/* Video Section */}
       <motion.div 
-        className="relative w-full max-w-4xl mx-auto aspect-video bg-yellow-300 rounded-lg mb-16 flex items-center justify-center"
+        className="relative w-full max-w-4xl mx-auto aspect-video mb-16 overflow-hidden rounded-lg shadow-lg"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -67,13 +67,13 @@ const TeamSection = () => {
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >
-        <motion.div 
-          className="w-16 h-16 bg-white rounded-full flex items-center justify-center cursor-pointer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[16px] border-l-black border-b-[8px] border-b-transparent ml-1"></div>
-        </motion.div>
+        <iframe 
+          className="w-full h-full"
+          src="https://www.youtube.com/embed/2SIdIAMzHH0"
+          title="Spanish Lessons Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
       </motion.div>
 
       {/* Team Members */}

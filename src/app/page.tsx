@@ -5,6 +5,7 @@ import RoadMapSection from "@/components/RoadMapSection";
 import BlogSection from "@/components/BlogSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import TeamSection from "@/components/TeamSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <TestimonialSection />
       <TeamSection />
       <BlogSection />
+      <ContactSection />
       <Footer />
     </div>
   );

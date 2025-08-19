@@ -11,7 +11,7 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default function CoursesPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="bg-white pt-24 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 py-8 sm:py-10 md:py-12 text-black">
       {/* Add CourseStructuredData component for this specific page */}
       <CourseStructuredData />
       

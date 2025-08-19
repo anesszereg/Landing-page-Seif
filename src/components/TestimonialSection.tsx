@@ -27,7 +27,7 @@ export default function TestimonialSection() {
       rating: 5,
       comment: t('testimonial.comment.1'),
       date: "Feb 28, 2024",
-      avatar: "/assets/images/avatar-1.webp"
+      avatar: "/assets/images/profile.webp"
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ export default function TestimonialSection() {
       rating: 5,
       comment: t('testimonial.comment.2'),
       date: "Jun 19, 2025",
-      avatar: "/assets/images/avatar-2.webp"
+      avatar: "/assets/images/profile.webp"
     },
     {
       id: 3,
@@ -43,7 +43,7 @@ export default function TestimonialSection() {
       rating: 5,
       comment: t('testimonial.comment.3'),
       date: "Apr 18, 2025",
-      avatar: "/assets/images/avatar-3.webp"
+      avatar: "/assets/images/profile.webp"
     },
     {
       id: 4,
@@ -51,7 +51,7 @@ export default function TestimonialSection() {
       rating: 5,
       comment: t('testimonial.comment.4'),
       date: "Mar 26, 2024",
-      avatar: "/assets/images/avatar-4.webp"
+      avatar: "/assets/images/profile.webp"
     },
     {
       id: 5,
@@ -59,7 +59,7 @@ export default function TestimonialSection() {
       rating: 5,
       comment: t('testimonial.comment.5'),
       date: "Feb 2, 2024",
-      avatar: "/assets/images/avatar-5.webp"
+      avatar: "/assets/images/profile.webp"
     },
     {
       id: 6,
@@ -67,7 +67,7 @@ export default function TestimonialSection() {
       rating: 5,
       comment: t('testimonial.comment.6'),
       date: "Aug 26, 2024",
-      avatar: "/assets/images/avatar-6.webp"
+      avatar: "/assets/images/profile.webp"
     }
   ];
 

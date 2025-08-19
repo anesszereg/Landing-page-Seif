@@ -7,7 +7,7 @@ import { fadeUpVariants, slideFromLeftVariants } from '@/utils/animations';
 import { useTranslation } from '@/context/TranslationContext';
 
 export default function Hero() {
-  const { t, currentLanguage } = useTranslation();
+  const { t } = useTranslation();
   return (
     <motion.div 
       id="hero"
@@ -47,19 +47,7 @@ export default function Hero() {
           </button>
         </div>
         
-        {/* Stats badge */}
-        <div className="absolute bottom-2 sm:bottom-6 right-2 sm:right-6 bg-gray-200/50 backdrop-blur-sm p-2 sm:p-4 rounded-lg sm:rounded-xl text-center">
-          <div className="text-xl sm:text-3xl font-bold text-gray-800">89%</div>
-          <div className="text-xs sm:text-sm text-gray-700">
-            {currentLanguage === 'fr' ? (
-              <>Taux de réussite<br />des élèves aux<br />épreuves du BAC</>
-            ) : currentLanguage === 'ar' ? (
-              <>معدل نجاح<br />الطلاب في<br />امتحانات البكالوريا</>
-            ) : (
-              <>Pass rate of<br />students in their<br />BAC exams</>
-            )}
-          </div>
-        </div>
+
       </div>
     </motion.div>
   );
