@@ -9,51 +9,7 @@ import { motion } from 'framer-motion';
 export default function BookSession() {
     const { t } = useTranslation();
     const [activeTab, setActiveTab] = useState('overview');
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        time: '',
-        level: 'beginner',
-        message: '',
-    });
-    const [_isSubmitting, setIsSubmitting] = useState(false);
-    const [_submitSuccess, setSubmitSuccess] = useState(false);
-    const [_submitError, setSubmitError] = useState('');
-
-    const _handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const _handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitError('');
-
-        try {
-            // Here you would typically send the data to your API
-            // For now we'll just simulate a successful submission
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            setSubmitSuccess(true);
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                date: '',
-                time: '',
-                level: 'beginner',
-                message: '',
-            });
-        } catch (error) {
-            setSubmitError('There was an error submitting your request. Please try again.');
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+    // Form state and handlers removed as they're not being used in this component
 
     // Animation variants
     const fadeIn = {

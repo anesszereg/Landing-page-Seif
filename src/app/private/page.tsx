@@ -48,7 +48,7 @@ export default function PrivateLessons() {
                 level: 'beginner',
                 message: '',
             });
-        } catch (_error) {
+        } catch {
             setSubmitError(t('private.schedule.form.error'));
         } finally {
             setIsSubmitting(false);
