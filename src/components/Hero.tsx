@@ -5,7 +5,7 @@
 import { motion } from 'framer-motion';
 import { fadeUpVariants, slideFromLeftVariants } from '@/utils/animations';
 import { useTranslation } from '@/context/TranslationContext';
-
+import Link from 'next/link';
 export default function Hero() {
   const { t } = useTranslation();
   return (
@@ -41,10 +41,11 @@ export default function Hero() {
         
         {/* Absolute positioned elements */}
         <div className="absolute bg-white bottom-0 left-0 p-3 sm:p-6 z-10 flex items-center gap-2 rounded-tr-xl sm:rounded-tr-3xl">
-         
-          <button className="bg-black hover:bg-orange-600 text-white text-xs sm:text-sm py-1.5 sm:py-2 px-10 sm:px-5 rounded-full flex items-center gap-2 transition-colors">
+          <Link href="/group-class">
+          <button  className="bg-black hover:bg-yellow-500 text-white text-xs sm:text-sm py-1.5 sm:py-2 px-10 sm:px-5 rounded-full flex items-center gap-2 transition-colors">
           {t('hero.cta')}
           </button>
+          </Link>
         </div>
         
 

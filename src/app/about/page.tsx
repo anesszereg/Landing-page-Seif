@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useTranslation } from '@/context/TranslationContext';
+import ContactSection from '@/components/ContactSection';
 
 export default function AboutPage() {
   const { t } = useTranslation();
@@ -219,6 +220,7 @@ export default function AboutPage() {
           </motion.div>
         </motion.div>
       </motion.div>
+      <ContactSection />
       <Footer />
     </motion.div>
   );

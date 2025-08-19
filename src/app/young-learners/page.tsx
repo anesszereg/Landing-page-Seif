@@ -6,6 +6,7 @@ import { useTranslation } from '@/context/TranslationContext';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 
+
 export default function YoungLearners() {
     const { t } = useTranslation();
     const [activeTab, setActiveTab] = useState('overview');
@@ -501,6 +502,7 @@ export default function YoungLearners() {
                     )}
                 </motion.div>
             </motion.div>
+
             <Footer />
         </motion.div>
     );

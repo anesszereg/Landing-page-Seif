@@ -85,9 +85,11 @@ export default function Navbar() {
       
       {/* Right Side - Desktop */}
       <div className="hidden md:flex text-black items-center space-x-4">
+        <Link href="/#contact">
         <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">{t('navbar.contactUs')}</button>
+        </Link>
         
-        <Link href="/book" className="bg-yellow-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
+        <Link href="/group-class" className="bg-yellow-400 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-yellow-500 transition-colors">
           {t('navbar.bookSession')}
         </Link>
         
@@ -225,7 +227,7 @@ export default function Navbar() {
               {/* Mobile CTA */}
               <div className="px-6 py-4">
                 <Link 
-                  href="/book" 
+                  href="/group-class" 
                   className="block w-full bg-yellow-400 text-black px-5 py-2 rounded-full text-center text-sm font-medium hover:bg-yellow-500 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

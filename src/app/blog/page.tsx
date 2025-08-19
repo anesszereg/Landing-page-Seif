@@ -6,21 +6,34 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from '@/context/TranslationContext';
 import Footer from '@/components/Footer';
+import ContactSection from '@/components/ContactSection';
 
-// Animation variants
+// Animation variants as Framer Motion variants
 const fadeIn = {
-  // hidden: { opacity: 0, y: 20 },
-  // visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
 };
 
 const staggerContainer = {
-  // hidden: { opacity: 0 },
-  // visible: {
-  //   opacity: 1,
-  //   transition: {
-  //     staggerChildren: 0.2
-  //   }
-  // }
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+  hover: { y: -8, scale: 1.02, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const listItemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+  hover: { scale: 1.05, x: 5 }
 };
 
 // Blog page component
@@ -77,6 +90,7 @@ export default function BlogPage() {
       initial="hidden"
       animate="visible"
       variants={fadeIn}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="font-sans bg-white pt-24"
     >
 
@@ -98,7 +112,7 @@ export default function BlogPage() {
         {/* Page Title */}
         <motion.h1
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
-          variants={fadeIn}
+          variants={titleVariants}
         >
           {t('blog.page.title')}
         </motion.h1>
@@ -136,14 +150,15 @@ export default function BlogPage() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
+            transition={{ staggerChildren: 0.2, delayChildren: 0.1 }}
           >
             {featuredPosts.map(post => (
               <motion.div
                 key={post.id}
-                className="bg-white rounded-md overflow-hidden  transition-shadow duration-300"
-                variants={fadeIn}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
+                className="bg-white rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                variants={cardVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                whileHover="hover"
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="relative w-full">
@@ -177,10 +192,10 @@ export default function BlogPage() {
             {latestPosts.map(post => (
               <motion.div
                 key={post.id}
-                className="flex flex-col md:flex-row gap-8"
-                variants={fadeIn}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
+                className="flex flex-col md:flex-row gap-8 p-4 rounded-lg hover:bg-gray-50"
+                variants={cardVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                whileHover="hover"
               >
                 <div className="flex-1">
                   <Link href={`/blog/${post.slug}`} className="block">
@@ -228,8 +243,9 @@ export default function BlogPage() {
             {categories.map(category => (
               <motion.div
                 key={category}
-                variants={fadeIn}
-                whileHover={{ scale: 1.03 }}
+                variants={listItemVariants}
+                transition={{ duration: 0.3 }}
+                whileHover="hover"
                 whileTap={{ scale: 0.97 }}
               >
                 <Link href={`/blog/category/${category.toLowerCase()}`} className="block px-3 py-1.5 bg-gray-50 border border-gray-200 hover:bg-gray-100 rounded-md text-gray-700 text-sm transition-colors">
@@ -255,8 +271,9 @@ export default function BlogPage() {
             {tags.map(tag => (
               <motion.div
                 key={tag}
-                variants={fadeIn}
-                whileHover={{ scale: 1.03 }}
+                variants={listItemVariants}
+                transition={{ duration: 0.3 }}
+                whileHover="hover"
                 whileTap={{ scale: 0.97 }}
               >
                 <Link href={`/blog/tag/${tag.toLowerCase()}`} className="block px-3 py-1 bg-gray-50 border border-gray-200 hover:bg-gray-100 rounded-md text-sm text-gray-700 transition-colors">
@@ -267,7 +284,7 @@ export default function BlogPage() {
           </motion.div>
         </motion.div>
       </motion.div>
-
+      <ContactSection />
       <Footer  />
     </motion.div>
   );

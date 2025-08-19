@@ -20,8 +20,8 @@ export async function POST(req: Request) {
     
     // Send the email using Resend
     const data = await resend.emails.send({
-      from: 'Contact Form <onboarding@resend.dev>', // Use a verified domain in production
-      to: ['contact@lunespanol.com'], // Replace with your actual email
+      from: 'Contact Form ', // Use a verified domain in production
+      to: ['anesszereg1@gmail.com'], // Replace with your actual email
       subject: `Contact Form: ${subject}`,
       text: `
 Name: ${name}
