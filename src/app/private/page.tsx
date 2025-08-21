@@ -170,6 +170,17 @@ export default function PrivateLessons() {
                             {t('private.tabs.overview')}
                         </motion.button>
                         <motion.button
+                            onClick={() => setActiveTab('plans')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'plans' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'plans' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('private.tabs.plans')}
+                        </motion.button>
+                        <motion.button
                             onClick={() => setActiveTab('reviews')}
                             className={`py-4 text-sm font-medium ${activeTab === 'reviews' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
                             animate={activeTab === 'reviews' ? "active" : "inactive"}
@@ -179,6 +190,17 @@ export default function PrivateLessons() {
                             whileTap={{ scale: 0.95 }}
                         >
                             {t('private.tabs.reviews')}
+                        </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab('faq')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'faq' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'faq' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('private.tabs.faq')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('schedule')}
@@ -491,6 +513,167 @@ export default function PrivateLessons() {
                                     </div>
                                 </form>
                             )}
+                        </motion.div>
+                    )}
+                    {activeTab === 'plans' && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="space-y-8"
+                        >
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('private.plans.title')}</h2>
+                            <p className="text-xl font-medium text-gray-700 mb-8">{t('private.plans.subtitle')}</p>
+
+                            {/* Plans Cards */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {/* Package 1 */}
+                                <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2">{t('private.plans.package1.title')}</h3>
+                                        <div className="text-yellow-500 text-2xl font-bold mb-1">{t('private.plans.package1.price')}</div>
+                                        <div className="text-gray-600 mb-4">{t('private.plans.package1.usd')}</div>
+                                        <p className="text-gray-700 mb-4">{t('private.plans.package1.description')}</p>
+                                        <ul className="space-y-2 mb-6">
+                                            {(t('private.plans.package1.features', { returnObjects: true }) as unknown as string[]).map((feature: string, index: number) => (
+                                                <li key={index} className="flex items-start">
+                                                    <svg className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <span>{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                {/* Package 2 */}
+                                <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2">{t('private.plans.package2.title')}</h3>
+                                        <div className="text-yellow-500 text-2xl font-bold mb-1">{t('private.plans.package2.price')}</div>
+                                        <div className="text-gray-600 mb-4">{t('private.plans.package2.usd')}</div>
+                                        <p className="text-gray-700 mb-4">{t('private.plans.package2.description')}</p>
+                                        <ul className="space-y-2 mb-6">
+                                            {(t('private.plans.package2.features', { returnObjects: true }) as unknown as string[]).map((feature: string, index: number) => (
+                                                <li key={index} className="flex items-start">
+                                                    <svg className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <span>{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                {/* Package 3 */}
+                                <div className="bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2">{t('private.plans.package3.title')}</h3>
+                                        <div className="text-yellow-500 text-2xl font-bold mb-1">{t('private.plans.package3.price')}</div>
+                                        <div className="text-gray-600 mb-4">{t('private.plans.package3.usd')}</div>
+                                        <p className="text-gray-700 mb-4">{t('private.plans.package3.description')}</p>
+                                        <ul className="space-y-2 mb-6">
+                                            {(t('private.plans.package3.features', { returnObjects: true }) as unknown as string[]).map((feature: string, index: number) => (
+                                                <li key={index} className="flex items-start">
+                                                    <svg className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <span>{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Book Trial Button */}
+                            <div className="flex justify-center mt-8">
+                                <motion.button
+                                    onClick={() => setActiveTab('schedule')}
+                                    className="bg-yellow-400 text-black font-medium py-3 px-8 rounded-full transition-colors"
+                                    whileHover={{ scale: 1.05, backgroundColor: "#eab308" }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    {t('private.plans.trialbutton')}
+                                </motion.button>
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {activeTab === 'faq' && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="space-y-8"
+                        >
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('private.faq.title')}</h2>
+                            
+                            <div className="space-y-6">
+                                {/* FAQ Item 1 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q1')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a1')}</p>
+                                </div>
+
+                                {/* FAQ Item 2 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q2')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a2')}</p>
+                                </div>
+
+                                {/* FAQ Item 3 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q3')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a3')}</p>
+                                </div>
+
+                                {/* FAQ Item 4 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q4')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a4')}</p>
+                                </div>
+
+                                {/* FAQ Item 5 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q5')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a5')}</p>
+                                </div>
+
+                                {/* FAQ Item 6 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q6')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a6')}</p>
+                                </div>
+
+                                {/* FAQ Item 7 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q7')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a7')}</p>
+                                </div>
+
+                                {/* FAQ Item 8 */}
+                                <div className="border-b border-gray-200 pb-4">
+                                    <h3 className="text-xl font-medium text-gray-900 mb-2">{t('private.faq.q8')}</h3>
+                                    <p className="text-gray-700">{t('private.faq.a8')}</p>
+                                </div>
+                            </div>
+                            
+                            {/* Schedule Button */}
+                            <div className="flex justify-center mt-8">
+                                <motion.button
+                                    onClick={() => setActiveTab('schedule')}
+                                    className="bg-yellow-400 text-black font-medium py-3 px-8 rounded-full transition-colors"
+                                    whileHover={{ scale: 1.05, backgroundColor: "#eab308" }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    {t('private.faq.schedulebutton')}
+                                </motion.button>
+                            </div>
                         </motion.div>
                     )}
                 </motion.div>

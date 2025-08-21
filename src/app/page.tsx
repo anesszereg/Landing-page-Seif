@@ -2,7 +2,6 @@
 import Hero from "@/components/Hero";
 import CareerPaths from "@/components/CareerPaths";
 import RoadMapSection from "@/components/RoadMapSection";
-import BlogSection from "@/components/BlogSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import TeamSection from "@/components/TeamSection";
 import ContactSection from "@/components/ContactSection";
@@ -16,7 +15,7 @@ export default function Home() {
       <RoadMapSection />
       <TestimonialSection />
       <TeamSection />
-      <BlogSection />
+
       <ContactSection />
       <Footer />
     </div>

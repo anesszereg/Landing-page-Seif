@@ -56,7 +56,7 @@ export function LocalBusinessStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Spanish with Seif',
-    image: 'https://spanishwithseif.com/images/logo.webp',
+    image: 'https://spanishwithseif.com/images/Logo.svg',
     '@id': 'https://spanishwithseif.com',
     url: 'https://spanishwithseif.com',
     telephone: '+213XXXXXXXXX',

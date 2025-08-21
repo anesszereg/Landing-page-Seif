@@ -195,6 +195,28 @@ export default function YoungLearners() {
                         >
                             {t('younglearners.tabs.schedule')}
                         </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab('plans')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'plans' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'plans' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('younglearners.tabs.plans')}
+                        </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab('faq')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'faq' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'faq' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('younglearners.tabs.faq')}
+                        </motion.button>
                     </motion.div>
                 </motion.div>
 
@@ -361,12 +383,271 @@ export default function YoungLearners() {
                         </div>
                     )}
 
+                    {activeTab === 'plans' && (
+                        <motion.div
+                            variants={fadeIn}
+                            className="bg-white text-black w-full py-6"
+                        >
+                            <motion.div
+                                className="mb-8 text-center"
+                                variants={fadeIn}
+                            >
+                                <motion.h2
+                                    className="text-3xl font-bold text-gray-900 mb-3"
+                                    variants={fadeIn}
+                                >
+                                    {t('younglearners.plans.title')}
+                                </motion.h2>
+                                <motion.p
+                                    className="text-black"
+                                    variants={fadeIn}
+                                >
+                                    {t('younglearners.plans.subtitle')}
+                                </motion.p>
+                            </motion.div>
+
+                            {/* Plans Packages */}
+                            <motion.div 
+                                className="grid grid-cols-1 md:grid-cols-3 gap-8 my-8"
+                                variants={staggerContainer}
+                            >
+                                {/* Package 1 */}
+                                <motion.div
+                                    className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('younglearners.plans.package1.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{t('younglearners.plans.package1.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{t('younglearners.plans.package1.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{t('younglearners.plans.package1.description')}</p>
+                                    <ul className="list-none space-y-2 mb-6 flex-grow">
+                                        {(() => {
+                                            const features = t('younglearners.plans.package1.features', { returnObjects: true });
+                                            return Array.isArray(features)
+                                                ? features.map((feature: string, index: number) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))
+                                                : <li className="flex items-center">{t('younglearners.plans.package1.features')}</li>
+                                        })()
+                                        }
+                                    </ul>
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="mt-auto w-full bg-yellow-400 text-black font-medium py-2 rounded-full transition-colors text-center"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('younglearners.plans.trialbutton')}
+                                    </motion.button>
+                                </motion.div>
+
+                                {/* Package 2 */}
+                                <motion.div
+                                    className="bg-white border border-yellow-400 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col relative overflow-hidden"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <div className="absolute -top-1 -right-12 bg-yellow-400 text-black px-10 py-1 rotate-45 transform text-xs font-bold">
+                                        Popular
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('younglearners.plans.package2.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{t('younglearners.plans.package2.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{t('younglearners.plans.package2.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{t('younglearners.plans.package2.description')}</p>
+                                    <ul className="list-none space-y-2 mb-6 flex-grow">
+                                        {(() => {
+                                            const features = t('younglearners.plans.package2.features', { returnObjects: true });
+                                            return Array.isArray(features)
+                                                ? features.map((feature: string, index: number) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))
+                                                : <li className="flex items-center">{t('younglearners.plans.package2.features')}</li>
+                                        })()
+                                        }
+                                    </ul>
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="mt-auto w-full bg-yellow-400 text-black font-medium py-2 rounded-full transition-colors text-center"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('younglearners.plans.trialbutton')}
+                                    </motion.button>
+                                </motion.div>
+
+                                {/* Package 3 */}
+                                <motion.div
+                                    className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('younglearners.plans.package3.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{t('younglearners.plans.package3.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{t('younglearners.plans.package3.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{t('younglearners.plans.package3.description')}</p>
+                                    <ul className="list-none space-y-2 mb-6 flex-grow">
+                                        {(() => {
+                                            const features = t('younglearners.plans.package3.features', { returnObjects: true });
+                                            return Array.isArray(features)
+                                                ? features.map((feature: string, index: number) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))
+                                                : <li className="flex items-center">{t('younglearners.plans.package3.features')}</li>
+                                        })()
+                                        }
+                                    </ul>
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="mt-auto w-full bg-yellow-400 text-black font-medium py-2 rounded-full transition-colors text-center"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('younglearners.plans.trialbutton')}
+                                    </motion.button>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+
+                    {activeTab === 'faq' && (
+                        <motion.div
+                            variants={fadeIn}
+                            className="bg-white w-full py-6"
+                        >
+                            <motion.div
+                                className="mb-8"
+                                variants={fadeIn}
+                            >
+                                <motion.h2
+                                    className="text-3xl font-bold text-gray-900 mb-8 text-center"
+                                    variants={fadeIn}
+                                >
+                                    {t('younglearners.faq.title')}
+                                </motion.h2>
+                            </motion.div>
+
+                            <motion.div 
+                                className="space-y-6"
+                                variants={staggerContainer}
+                            >
+                                {/* FAQ Item 1 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q1')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a1')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 2 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q2')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a2')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 3 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q3')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a3')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 4 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q4')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a4')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 5 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q5')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a5')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 6 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q6')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a6')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 7 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q7')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a7')}</p>
+                                </motion.div>
+
+                                {/* FAQ Item 8 */}
+                                <motion.div
+                                    className="bg-white p-6 rounded-lg shadow-md border border-gray-100"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -3 }}
+                                >
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q8')}</h3>
+                                    <p className="text-gray-700">{t('younglearners.faq.a8')}</p>
+                                </motion.div>
+
+                                <motion.div
+                                    className="mt-10 text-center"
+                                    variants={fadeIn}
+                                >
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="bg-yellow-400 text-black font-medium py-3 px-8 rounded-full transition-colors"
+                                        whileHover={{ scale: 1.05, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        {t('younglearners.faq.schedulebutton')}
+                                    </motion.button>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+
                     {activeTab === 'schedule' && (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                            variants={fadeIn}
+               
+                            className="w-full max-w-lg mx-auto"
                         >
                             <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('younglearners.enroll.title')}</h2>
 

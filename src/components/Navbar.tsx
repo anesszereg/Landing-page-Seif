@@ -71,7 +71,7 @@ export default function Navbar() {
       {/* Logo */}
 
       <Link href="/" className="flex items-center">
-        <Image src="/assets/images/Logo.png" alt="Logo" width={100} height={100} />
+        <Image src="/assets/images/Logo.svg" alt="Logo" width={100} height={100} />
       </Link>
       
       {/* Center Navigation - Desktop */}

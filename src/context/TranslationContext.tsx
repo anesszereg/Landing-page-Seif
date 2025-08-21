@@ -11,11 +11,18 @@ export type Translations = typeof en;
 // Define language codes we support
 export type LanguageCode = 'en' | 'fr' | 'ar';
 
+// Define the translations object
+type TranslationFiles = {
+  en: typeof en;
+  fr: Partial<typeof en>;
+  ar: Partial<typeof en>;
+};
+
 // Create a map of language codes to their translations
-const translations: Record<LanguageCode, Translations> = {
+const translations: Record<LanguageCode, Record<string, any>> = {
   en,
-  fr,
-  ar
+  fr: fr as Record<string, any>,
+  ar: ar as Record<string, any>
 };
 
 // Create a type for the language metadata
@@ -35,7 +42,7 @@ export const languages: Record<LanguageCode, LanguageInfo> = {
 
 // Define the shape of our context
 type TranslationContextType = {
-  t: (key: keyof Translations) => string;
+  t: <T = string>(key: string, options?: { returnObjects?: boolean }) => T extends string ? string : any;
   currentLanguage: LanguageCode;
   currentLanguageInfo: LanguageInfo;
   changeLanguage: (lang: LanguageCode) => void;
@@ -50,8 +57,12 @@ export const TranslationProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>('en');
   
   // Function to get a translation by key
-  const t = (key: keyof Translations): string => {
-    return translations[currentLanguage][key] || key;
+  const t = <T = string>(key: string, options?: { returnObjects?: boolean }): T extends string ? string : any => {
+    const value = translations[currentLanguage][key as keyof Translations] || key;
+    if (options?.returnObjects && Array.isArray(value)) {
+      return value as any;
+    }
+    return value as any;
   };
   
   // Function to change the language

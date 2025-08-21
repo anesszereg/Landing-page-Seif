@@ -15,13 +15,13 @@ const TeamSection = () => {
       name: 'Seif',
       roleKey: 'team.seif.role' as TeamMemberKey,
       descriptionKey: 'team.seif.description' as TeamMemberKey,
-      image: '/assets/Team/Seif2.webp'
+      image: '/assets/Team/Seif.svg'
     },
     {
       name: 'Katret Nada',
       roleKey: 'team.nada.role' as TeamMemberKey,
       descriptionKey: 'team.nada.description' as TeamMemberKey,
-      image: '/assets/Team/Katret Nada.webp'
+      image: '/assets/Team/KatretNada.svg'
     },
     {
       name: 'Feriel',

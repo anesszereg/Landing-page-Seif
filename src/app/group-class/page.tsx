@@ -39,7 +39,7 @@ export default function BookSession() {
 
     return (
         <motion.div
-            className="font-sans bg-white pt-24 "
+            className="font-sans text-black bg-white pt-24 "
             initial="hidden"
             animate="visible"
             variants={fadeIn}
@@ -116,6 +116,28 @@ export default function BookSession() {
                             whileTap={{ scale: 0.95 }}
                         >
                             {t('groupclass.tabs.overview')}
+                        </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab('plans')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'plans' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'plans' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('groupclass.tabs.plans')}
+                        </motion.button>
+                        <motion.button
+                            onClick={() => setActiveTab('faq')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'faq' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'faq' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('groupclass.tabs.faq')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('reviews')}
@@ -291,6 +313,230 @@ export default function BookSession() {
                     )}
 
                     {/* Schedule Tab Content */}
+                    {/* Plans Tab Content */}
+                    {activeTab === 'plans' && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-white w-full py-6"
+                        >
+                            <motion.div
+                                className="mb-8 text-center"
+                                variants={fadeIn}
+                            >
+                                <motion.h2
+                                    className="text-3xl font-bold text-gray-900 mb-3"
+                                    variants={fadeIn}
+                                >
+                                    {t('groupclass.plans.title')}
+                                </motion.h2>
+                                <motion.p
+                                    className="text-gray-700"
+                                    variants={fadeIn}
+                                >
+                                    {t('groupclass.plans.subtitle')}
+                                </motion.p>
+                            </motion.div>
+
+                            {/* Plans Packages */}
+                            <motion.div 
+                                className="grid grid-cols-1 md:grid-cols-3 gap-8 my-8"
+                                variants={staggerContainer}
+                            >
+                                {/* Package 1 */}
+                                <motion.div
+                                    className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('groupclass.plans.package1.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{t('groupclass.plans.package1.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{t('groupclass.plans.package1.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{t('groupclass.plans.package1.description')}</p>
+                                    <ul className="list-none space-y-2 mb-6 flex-grow">
+                                        {(() => {
+                                            const features = t('groupclass.plans.package1.features', { returnObjects: true });
+                                            return Array.isArray(features)
+                                                ? features.map((feature: string, index: number) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))
+                                                : <li className="flex items-center">{t('groupclass.plans.package1.features')}</li>
+                                        })()
+                                        }
+                                    </ul>
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="mt-auto w-full bg-yellow-400 text-black font-medium py-2 rounded-full transition-colors text-center"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('groupclass.plans.trialbutton')}
+                                    </motion.button>
+                                </motion.div>
+
+                                {/* Package 2 */}
+                                <motion.div
+                                    className="bg-white border border-yellow-400 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col relative overflow-hidden"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <div className="absolute -top-1 -right-12 bg-yellow-400 text-black px-10 py-1 rotate-45 transform text-xs font-bold">
+                                        Popular
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('groupclass.plans.package2.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{t('groupclass.plans.package2.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{t('groupclass.plans.package2.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{t('groupclass.plans.package2.description')}</p>
+                                    <ul className="list-none space-y-2 mb-6 flex-grow">
+                                        {(() => {
+                                            const features = t('groupclass.plans.package2.features', { returnObjects: true });
+                                            return Array.isArray(features)
+                                                ? features.map((feature: string, index: number) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))
+                                                : <li className="flex items-center">{t('groupclass.plans.package2.features')}</li>
+                                        })()
+                                        }
+                                    </ul>
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="mt-auto w-full bg-yellow-400 text-black font-medium py-2 rounded-full transition-colors text-center"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('groupclass.plans.trialbutton')}
+                                    </motion.button>
+                                </motion.div>
+
+                                {/* Package 3 */}
+                                <motion.div
+                                    className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 flex flex-col"
+                                    variants={fadeIn}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('groupclass.plans.package3.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{t('groupclass.plans.package3.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{t('groupclass.plans.package3.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{t('groupclass.plans.package3.description')}</p>
+                                    <ul className="list-none space-y-2 mb-6 flex-grow">
+                                        {(() => {
+                                            const features = t('groupclass.plans.package3.features', { returnObjects: true });
+                                            return Array.isArray(features)
+                                                ? features.map((feature: string, index: number) => (
+                                                    <li key={index} className="flex items-center">
+                                                        <svg className="h-4 w-4 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                        </svg>
+                                                        {feature}
+                                                    </li>
+                                                ))
+                                                : <li className="flex items-center">{t('groupclass.plans.package3.features')}</li>
+                                        })()
+                                        }
+                                    </ul>
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="mt-auto w-full bg-yellow-400 text-black font-medium py-2 rounded-full transition-colors text-center"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('groupclass.plans.trialbutton')}
+                                    </motion.button>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+
+                    {/* FAQ Tab Content */}
+                    {activeTab === 'faq' && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-white w-full py-6"
+                        >
+                            <motion.div
+                                className="mb-12 text-center"
+                                variants={fadeIn}
+                            >
+                                <motion.h2
+                                    className="text-3xl font-bold text-gray-900 mb-3"
+                                    variants={fadeIn}
+                                >
+                                    {t('groupclass.faq.title')}
+                                </motion.h2>
+                            </motion.div>
+
+                            <div className="max-w-3xl mx-auto space-y-6">
+                                {/* FAQ Item 1 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q1')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a1')}</p>
+                                </div>
+
+                                {/* FAQ Item 2 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q2')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a2')}</p>
+                                </div>
+
+                                {/* FAQ Item 3 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q3')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a3')}</p>
+                                </div>
+
+                                {/* FAQ Item 4 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q4')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a4')}</p>
+                                </div>
+
+                                {/* FAQ Item 5 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q5')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a5')}</p>
+                                </div>
+
+                                {/* FAQ Item 6 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q6')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a6')}</p>
+                                </div>
+
+                                {/* FAQ Item 7 */}
+                                <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+                                    <h3 className="text-lg font-medium text-gray-900 mb-2">{t('groupclass.faq.q7')}</h3>
+                                    <p className="text-gray-700">{t('groupclass.faq.a7')}</p>
+                                </div>
+
+                                <div className="text-center mt-12">
+                                    <motion.button
+                                        onClick={() => setActiveTab('schedule')}
+                                        className="bg-yellow-400 text-black font-medium py-3 px-8 rounded-full transition-colors inline-block"
+                                        whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        {t('groupclass.faq.schedulebutton')}
+                                    </motion.button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+
                     {activeTab === 'schedule' && (
                         <motion.div
                             initial={{ opacity: 0 }}
