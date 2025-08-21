@@ -11,18 +11,14 @@ export type Translations = typeof en;
 // Define language codes we support
 export type LanguageCode = 'en' | 'fr' | 'ar';
 
-// Define the translations object
-type TranslationFiles = {
-  en: typeof en;
-  fr: Partial<typeof en>;
-  ar: Partial<typeof en>;
-};
-
 // Create a map of language codes to their translations
-const translations: Record<LanguageCode, Record<string, any>> = {
+const translations: Record<
+  LanguageCode,
+  Record<string, string | string[] | Record<string, string>>
+> = {
   en,
-  fr: fr as Record<string, any>,
-  ar: ar as Record<string, any>
+  fr,
+  ar,
 };
 
 // Create a type for the language metadata
@@ -37,12 +33,14 @@ export type LanguageInfo = {
 export const languages: Record<LanguageCode, LanguageInfo> = {
   en: { code: 'en', name: 'English', flag: '/assets/images/en-flag.webp', direction: 'ltr' },
   fr: { code: 'fr', name: 'Français', flag: '/assets/images/fr-flag.webp', direction: 'ltr' },
-  ar: { code: 'ar', name: 'العربية', flag: '/assets/images/ar-flag.webp', direction: 'rtl' }
+  ar: { code: 'ar', name: 'العربية', flag: '/assets/images/ar-flag.webp', direction: 'rtl' },
 };
 
 // Define the shape of our context
 type TranslationContextType = {
-  t: <T = string>(key: string, options?: { returnObjects?: boolean }) => T extends string ? string : any;
+  t: <T extends string = string>(key: string, options?: { returnObjects?: boolean }) => T;
+  tString: (key: string) => string;
+  tReact: (key: string, options?: { returnObjects?: boolean }) => React.ReactNode;
   currentLanguage: LanguageCode;
   currentLanguageInfo: LanguageInfo;
   changeLanguage: (lang: LanguageCode) => void;
@@ -55,43 +53,62 @@ const TranslationContext = createContext<TranslationContextType | undefined>(und
 export const TranslationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // State to track the current language
   const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>('en');
-  
-  // Function to get a translation by key
-  const t = <T = string>(key: string, options?: { returnObjects?: boolean }): T extends string ? string : any => {
-    const value = translations[currentLanguage][key as keyof Translations] || key;
-    if (options?.returnObjects && Array.isArray(value)) {
-      return value as any;
+
+  // Function to get a translation by key with generic typing
+  const t = <T extends string = string>(key: string, options?: { returnObjects?: boolean }): T => {
+    const value = translations[currentLanguage][key] ?? key;
+
+    if (options?.returnObjects && typeof value !== 'string') {
+      return value as unknown as T;
     }
-    return value as any;
+
+    return (typeof value === 'string' ? value : key) as unknown as T;
   };
-  
+
+  // Function that always returns a string
+  const tString = (key: string): string => {
+    const value = translations[currentLanguage][key] ?? key;
+    return typeof value === 'string' ? value : key;
+  };
+
+  // Function for use in React components (returns ReactNode)
+  const tReact = (key: string, options?: { returnObjects?: boolean }): React.ReactNode => {
+    const value = translations[currentLanguage][key] ?? key;
+    
+    if (options?.returnObjects && typeof value !== 'string') {
+      return value as React.ReactNode;
+    }
+    
+    return typeof value === 'string' ? value : key;
+  };
+
   // Function to change the language
   const changeLanguage = (lang: LanguageCode) => {
     setCurrentLanguage(lang);
     localStorage.setItem('language', lang);
-    
+
     // Update document direction for RTL support
     document.documentElement.dir = languages[lang].direction;
-    
-    // You could also update other language-specific settings here
   };
-  
+
   // On first load, check if user has a saved language preference
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language') as LanguageCode;
+    const savedLanguage = localStorage.getItem('language') as LanguageCode | null;
     if (savedLanguage && Object.keys(translations).includes(savedLanguage)) {
       changeLanguage(savedLanguage);
     }
   }, []);
-  
+
   return (
-    <TranslationContext.Provider 
-      value={{ 
-        t, 
-        currentLanguage, 
-        currentLanguageInfo: languages[currentLanguage], 
+    <TranslationContext.Provider
+      value={{
+        t,
+        tString,
+        tReact,
+        currentLanguage,
+        currentLanguageInfo: languages[currentLanguage],
         changeLanguage,
-        allLanguages: languages
+        allLanguages: languages,
       }}
     >
       {children}

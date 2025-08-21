@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 
 export default function YoungLearners() {
-    const { t } = useTranslation();
+    const { t, tReact, tString } = useTranslation();
     const [activeTab, setActiveTab] = useState('overview');
     const [formData, setFormData] = useState({
         childName: '',
@@ -111,9 +111,9 @@ export default function YoungLearners() {
                             className="text-sm text-black mb-4"
                             variants={fadeIn}
                         >
-                            <Link href="/" className="hover:text-yellow-500 transition-colors">{t('younglearners.breadcrumb.home')}</Link>
+                            <Link href="/" className="hover:text-yellow-500 transition-colors">{tReact('younglearners.breadcrumb.home')}</Link>
                             <span className="mx-2">/</span>
-                            <span className="text-gray-700">{t('younglearners.breadcrumb.page')}</span>
+                            <span className="text-gray-700">{tReact('younglearners.breadcrumb.page')}</span>
                         </motion.div>
 
                         {/* Page Title */}
@@ -121,13 +121,13 @@ export default function YoungLearners() {
                             className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2"
                             variants={fadeIn}
                         >
-                            {t('younglearners.title')}
+                            {tReact('younglearners.title')}
                         </motion.h1>
                         <motion.p
                             className="text-black mb-8"
                             variants={fadeIn}
                         >
-                            {t('younglearners.subtitle')}
+                            {tReact('younglearners.subtitle')}
                         </motion.p>
                     </motion.div>
 
@@ -145,7 +145,7 @@ export default function YoungLearners() {
                                     whileHover={{ scale: 1.05, backgroundColor: "#eab308" }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    {t('younglearners.enroll.button')}
+                                    {tReact('younglearners.enroll.button')}
                                 </motion.button>
                             </motion.div>
                         )
@@ -171,7 +171,7 @@ export default function YoungLearners() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {t('younglearners.tabs.overview')}
+                            {tReact('younglearners.tabs.overview')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('reviews')}
@@ -182,7 +182,7 @@ export default function YoungLearners() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {t('younglearners.tabs.reviews')}
+                            {tReact('younglearners.tabs.reviews')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('schedule')}
@@ -193,7 +193,7 @@ export default function YoungLearners() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {t('younglearners.tabs.schedule')}
+                            {tReact('younglearners.tabs.schedule')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('plans')}
@@ -204,7 +204,7 @@ export default function YoungLearners() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {t('younglearners.tabs.plans')}
+                            {tReact('younglearners.tabs.plans')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('faq')}
@@ -215,7 +215,7 @@ export default function YoungLearners() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {t('younglearners.tabs.faq')}
+                            {tReact('younglearners.tabs.faq')}
                         </motion.button>
                     </motion.div>
                 </motion.div>
@@ -244,13 +244,13 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ x: 5 }}
                                 >
-                                    {t('younglearners.overview.title')}
+                                    {tReact('younglearners.overview.title')}
                                 </motion.h2>
                                 <motion.p
                                     className="text-gray-700"
                                     variants={fadeIn}
                                 >
-                                    {t('younglearners.overview.description')}
+                                    {tReact('younglearners.overview.description')}
                                 </motion.p>
                             </motion.div>
 
@@ -263,7 +263,7 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ x: 5 }}
                                 >
-                                    {t('younglearners.features.title')}
+                                    {tReact('younglearners.features.title')}
                                 </motion.h2>
                                 <motion.div
                                     className="space-y-3"
@@ -275,7 +275,7 @@ export default function YoungLearners() {
                                         whileHover={{ x: 5 }}
                                     >
                                         <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-yellow-400 mr-2 mt-0.5" readOnly checked />
-                                        <span className="text-gray-700">{t('younglearners.features.1')}</span>
+                                        <span className="text-gray-700">{tReact('younglearners.features.1')}</span>
                                     </motion.div>
                                     <motion.div
                                         className="flex items-start"
@@ -283,7 +283,7 @@ export default function YoungLearners() {
                                         whileHover={{ x: 5 }}
                                     >
                                         <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-yellow-400 mr-2 mt-0.5" readOnly checked />
-                                        <span className="text-gray-700">{t('younglearners.features.2')}</span>
+                                        <span className="text-gray-700">{tReact('younglearners.features.2')}</span>
                                     </motion.div>
                                     <motion.div
                                         className="flex items-start"
@@ -291,7 +291,7 @@ export default function YoungLearners() {
                                         whileHover={{ x: 5 }}
                                     >
                                         <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-yellow-400 mr-2 mt-0.5" readOnly checked />
-                                        <span className="text-gray-700">{t('younglearners.features.3')}</span>
+                                        <span className="text-gray-700">{tReact('younglearners.features.3')}</span>
                                     </motion.div>
                                     <motion.div
                                         className="flex items-start"
@@ -299,7 +299,7 @@ export default function YoungLearners() {
                                         whileHover={{ x: 5 }}
                                     >
                                         <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-yellow-400 mr-2 mt-0.5" readOnly checked />
-                                        <span className="text-gray-700">{t('younglearners.features.4')}</span>
+                                        <span className="text-gray-700">{tReact('younglearners.features.4')}</span>
                                     </motion.div>
                                     <motion.div
                                         className="flex items-start"
@@ -307,7 +307,7 @@ export default function YoungLearners() {
                                         whileHover={{ x: 5 }}
                                     >
                                         <input type="checkbox" className="h-5 w-5 rounded border-gray-300 text-yellow-400 mr-2 mt-0.5" readOnly checked />
-                                        <span className="text-gray-700">{t('younglearners.features.5')}</span>
+                                        <span className="text-gray-700">{tReact('younglearners.features.5')}</span>
                                     </motion.div>
                                 </motion.div>
                             </motion.div>
@@ -316,7 +316,7 @@ export default function YoungLearners() {
 
                     {activeTab === 'reviews' && (
                         <div className="space-y-8">
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('younglearners.reviews.title')}</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{tReact('younglearners.reviews.title')}</h2>
 
                             {/* Reviews */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -331,11 +331,11 @@ export default function YoungLearners() {
                                             ))}
                                         </div>
                                     </div>
-                                    <p className="text-gray-700 italic mb-4">{t('younglearners.reviews.text1')}</p>
+                                    <p className="text-gray-700 italic mb-4">{tReact('younglearners.reviews.text1')}</p>
                                     <div className="flex items-center">
                                         <div className="h-10 w-10 rounded-full bg-gray-300"></div>
                                         <div className="ml-3">
-                                            <p className="font-medium text-gray-800">{t('younglearners.reviews.name1')}</p>
+                                            <p className="font-medium text-gray-800">{tReact('younglearners.reviews.name1')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -351,11 +351,11 @@ export default function YoungLearners() {
                                             ))}
                                         </div>
                                     </div>
-                                    <p className="text-gray-700 italic mb-4">{t('younglearners.reviews.text2')}</p>
+                                    <p className="text-gray-700 italic mb-4">{tReact('younglearners.reviews.text2')}</p>
                                     <div className="flex items-center">
                                         <div className="h-10 w-10 rounded-full bg-gray-300"></div>
                                         <div className="ml-3">
-                                            <p className="font-medium text-gray-800">{t('younglearners.reviews.name2')}</p>
+                                            <p className="font-medium text-gray-800">{tReact('younglearners.reviews.name2')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -371,11 +371,11 @@ export default function YoungLearners() {
                                             ))}
                                         </div>
                                     </div>
-                                    <p className="text-gray-700 italic mb-4">{t('younglearners.reviews.text3')}</p>
+                                    <p className="text-gray-700 italic mb-4">{tReact('younglearners.reviews.text3')}</p>
                                     <div className="flex items-center">
                                         <div className="h-10 w-10 rounded-full bg-gray-300"></div>
                                         <div className="ml-3">
-                                            <p className="font-medium text-gray-800">{t('younglearners.reviews.name3')}</p>
+                                            <p className="font-medium text-gray-800">{tReact('younglearners.reviews.name3')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -396,13 +396,13 @@ export default function YoungLearners() {
                                     className="text-3xl font-bold text-gray-900 mb-3"
                                     variants={fadeIn}
                                 >
-                                    {t('younglearners.plans.title')}
+                                    {tReact('younglearners.plans.title')}
                                 </motion.h2>
                                 <motion.p
                                     className="text-black"
                                     variants={fadeIn}
                                 >
-                                    {t('younglearners.plans.subtitle')}
+                                    {tReact('younglearners.plans.subtitle')}
                                 </motion.p>
                             </motion.div>
 
@@ -417,13 +417,13 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -5 }}
                                 >
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('younglearners.plans.package1.title')}</h3>
-                                    <p className="text-yellow-500 font-bold mb-1">{t('younglearners.plans.package1.price')}</p>
-                                    <p className="text-sm text-gray-500 mb-4">{t('younglearners.plans.package1.usd')}</p>
-                                    <p className="text-gray-700 mb-4">{t('younglearners.plans.package1.description')}</p>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tReact('younglearners.plans.package1.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{tReact('younglearners.plans.package1.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{tReact('younglearners.plans.package1.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{tReact('younglearners.plans.package1.description')}</p>
                                     <ul className="list-none space-y-2 mb-6 flex-grow">
                                         {(() => {
-                                            const features = t('younglearners.plans.package1.features', { returnObjects: true });
+                                            const features = tReact('younglearners.plans.package1.features', { returnObjects: true });
                                             return Array.isArray(features)
                                                 ? features.map((feature: string, index: number) => (
                                                     <li key={index} className="flex items-center">
@@ -433,7 +433,7 @@ export default function YoungLearners() {
                                                         {feature}
                                                     </li>
                                                 ))
-                                                : <li className="flex items-center">{t('younglearners.plans.package1.features')}</li>
+                                                : <li className="flex items-center">{tReact('younglearners.plans.package1.features')}</li>
                                         })()
                                         }
                                     </ul>
@@ -443,7 +443,7 @@ export default function YoungLearners() {
                                         whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
                                         whileTap={{ scale: 0.97 }}
                                     >
-                                        {t('younglearners.plans.trialbutton')}
+                                        {tReact('younglearners.plans.trialbutton')}
                                     </motion.button>
                                 </motion.div>
 
@@ -456,13 +456,13 @@ export default function YoungLearners() {
                                     <div className="absolute -top-1 -right-12 bg-yellow-400 text-black px-10 py-1 rotate-45 transform text-xs font-bold">
                                         Popular
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('younglearners.plans.package2.title')}</h3>
-                                    <p className="text-yellow-500 font-bold mb-1">{t('younglearners.plans.package2.price')}</p>
-                                    <p className="text-sm text-gray-500 mb-4">{t('younglearners.plans.package2.usd')}</p>
-                                    <p className="text-gray-700 mb-4">{t('younglearners.plans.package2.description')}</p>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tReact('younglearners.plans.package2.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{tReact('younglearners.plans.package2.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{tReact('younglearners.plans.package2.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{tReact('younglearners.plans.package2.description')}</p>
                                     <ul className="list-none space-y-2 mb-6 flex-grow">
                                         {(() => {
-                                            const features = t('younglearners.plans.package2.features', { returnObjects: true });
+                                            const features = tReact('younglearners.plans.package2.features', { returnObjects: true });
                                             return Array.isArray(features)
                                                 ? features.map((feature: string, index: number) => (
                                                     <li key={index} className="flex items-center">
@@ -472,7 +472,7 @@ export default function YoungLearners() {
                                                         {feature}
                                                     </li>
                                                 ))
-                                                : <li className="flex items-center">{t('younglearners.plans.package2.features')}</li>
+                                                : <li className="flex items-center">{tReact('younglearners.plans.package2.features')}</li>
                                         })()
                                         }
                                     </ul>
@@ -482,7 +482,7 @@ export default function YoungLearners() {
                                         whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
                                         whileTap={{ scale: 0.97 }}
                                     >
-                                        {t('younglearners.plans.trialbutton')}
+                                        {tReact('younglearners.plans.trialbutton')}
                                     </motion.button>
                                 </motion.div>
 
@@ -492,13 +492,13 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -5 }}
                                 >
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('younglearners.plans.package3.title')}</h3>
-                                    <p className="text-yellow-500 font-bold mb-1">{t('younglearners.plans.package3.price')}</p>
-                                    <p className="text-sm text-gray-500 mb-4">{t('younglearners.plans.package3.usd')}</p>
-                                    <p className="text-gray-700 mb-4">{t('younglearners.plans.package3.description')}</p>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{tReact('younglearners.plans.package3.title')}</h3>
+                                    <p className="text-yellow-500 font-bold mb-1">{tReact('younglearners.plans.package3.price')}</p>
+                                    <p className="text-sm text-gray-500 mb-4">{tReact('younglearners.plans.package3.usd')}</p>
+                                    <p className="text-gray-700 mb-4">{tReact('younglearners.plans.package3.description')}</p>
                                     <ul className="list-none space-y-2 mb-6 flex-grow">
                                         {(() => {
-                                            const features = t('younglearners.plans.package3.features', { returnObjects: true });
+                                            const features = tReact('younglearners.plans.package3.features', { returnObjects: true });
                                             return Array.isArray(features)
                                                 ? features.map((feature: string, index: number) => (
                                                     <li key={index} className="flex items-center">
@@ -508,7 +508,7 @@ export default function YoungLearners() {
                                                         {feature}
                                                     </li>
                                                 ))
-                                                : <li className="flex items-center">{t('younglearners.plans.package3.features')}</li>
+                                                : <li className="flex items-center">{tReact('younglearners.plans.package3.features')}</li>
                                         })()
                                         }
                                     </ul>
@@ -518,7 +518,7 @@ export default function YoungLearners() {
                                         whileHover={{ scale: 1.03, backgroundColor: "#eab308" }}
                                         whileTap={{ scale: 0.97 }}
                                     >
-                                        {t('younglearners.plans.trialbutton')}
+                                        {tReact('younglearners.plans.trialbutton')}
                                     </motion.button>
                                 </motion.div>
                             </motion.div>
@@ -538,7 +538,7 @@ export default function YoungLearners() {
                                     className="text-3xl font-bold text-gray-900 mb-8 text-center"
                                     variants={fadeIn}
                                 >
-                                    {t('younglearners.faq.title')}
+                                    {tReact('younglearners.faq.title')}
                                 </motion.h2>
                             </motion.div>
 
@@ -552,8 +552,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q1')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a1')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q1')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a1')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 2 */}
@@ -562,8 +562,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q2')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a2')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q2')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a2')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 3 */}
@@ -572,8 +572,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q3')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a3')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q3')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a3')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 4 */}
@@ -582,8 +582,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q4')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a4')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q4')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a4')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 5 */}
@@ -592,8 +592,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q5')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a5')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q5')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a5')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 6 */}
@@ -602,8 +602,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q6')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a6')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q6')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a6')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 7 */}
@@ -612,8 +612,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q7')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a7')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q7')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a7')}</p>
                                 </motion.div>
 
                                 {/* FAQ Item 8 */}
@@ -622,8 +622,8 @@ export default function YoungLearners() {
                                     variants={fadeIn}
                                     whileHover={{ y: -3 }}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('younglearners.faq.q8')}</h3>
-                                    <p className="text-gray-700">{t('younglearners.faq.a8')}</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{tReact('younglearners.faq.q8')}</h3>
+                                    <p className="text-gray-700">{tReact('younglearners.faq.a8')}</p>
                                 </motion.div>
 
                                 <motion.div
@@ -636,7 +636,7 @@ export default function YoungLearners() {
                                         whileHover={{ scale: 1.05, backgroundColor: "#eab308" }}
                                         whileTap={{ scale: 0.95 }}
                                     >
-                                        {t('younglearners.faq.schedulebutton')}
+                                        {tReact('younglearners.faq.schedulebutton')}
                                     </motion.button>
                                 </motion.div>
                             </motion.div>
@@ -649,7 +649,7 @@ export default function YoungLearners() {
                
                             className="w-full max-w-lg mx-auto"
                         >
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('younglearners.enroll.title')}</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{tReact('younglearners.enroll.title')}</h2>
 
                             {/* Booking Success Message */}
                             {submitSuccess && (
@@ -658,7 +658,7 @@ export default function YoungLearners() {
                                     initial={{ opacity: 0, y: -20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                 >
-                                    <p>{t('younglearners.enroll.success')}</p>
+                                    <p>{tReact('younglearners.enroll.success')}</p>
                                 </motion.div>
                             )}
 
@@ -668,7 +668,7 @@ export default function YoungLearners() {
                                     {/* Child Information */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="childName" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.childName')}</label>
+                                            <label htmlFor="childName" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.childName')}</label>
                                             <input
                                                 type="text"
                                                 id="childName"
@@ -680,7 +680,7 @@ export default function YoungLearners() {
                                             />
                                         </div>
                                         <div>
-                                            <label htmlFor="childAge" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.childAge')}</label>
+                                            <label htmlFor="childAge" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.childAge')}</label>
                                             <input
                                                 type="text"
                                                 id="childAge"
@@ -696,7 +696,7 @@ export default function YoungLearners() {
                                     {/* Parent Information */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="parentName" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.parentName')}</label>
+                                            <label htmlFor="parentName" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.parentName')}</label>
                                             <input
                                                 type="text"
                                                 id="parentName"
@@ -708,7 +708,7 @@ export default function YoungLearners() {
                                             />
                                         </div>
                                         <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.email')}</label>
+                                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.email')}</label>
                                             <input
                                                 type="email"
                                                 id="email"
@@ -723,7 +723,7 @@ export default function YoungLearners() {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.phone')}</label>
+                                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.phone')}</label>
                                             <input
                                                 type="tel"
                                                 id="phone"
@@ -734,7 +734,7 @@ export default function YoungLearners() {
                                             />
                                         </div>
                                         <div>
-                                            <label htmlFor="level" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.level')}</label>
+                                            <label htmlFor="level" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.level')}</label>
                                             <select
                                                 id="level"
                                                 name="level"
@@ -743,15 +743,15 @@ export default function YoungLearners() {
                                                 required
                                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
                                             >
-                                                <option value="beginner">{t('younglearners.form.level.beginner')}</option>
-                                                <option value="elementary">{t('younglearners.form.level.elementary')}</option>
-                                                <option value="intermediate">{t('younglearners.form.level.intermediate')}</option>
+                                                <option value="beginner">{tReact('younglearners.form.level.beginner')}</option>
+                                                <option value="elementary">{tReact('younglearners.form.level.elementary')}</option>
+                                                <option value="intermediate">{tReact('younglearners.form.level.intermediate')}</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{t('younglearners.form.message')}</label>
+                                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{tReact('younglearners.form.message')}</label>
                                         <textarea
                                             id="message"
                                             name="message"
