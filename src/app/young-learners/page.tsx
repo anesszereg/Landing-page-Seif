@@ -159,7 +159,7 @@ export default function YoungLearners() {
                     variants={fadeIn}
                 >
                     <motion.div
-                        className="flex space-x-4 md:space-x-8 min-w-max"
+                        className="flex space-x-4 gap-4 md:space-x-8 min-w-max"
                         variants={staggerContainer}
                     >
                         <motion.button
@@ -184,16 +184,17 @@ export default function YoungLearners() {
                         >
                             {tReact('younglearners.tabs.reviews')}
                         </motion.button>
+                    
                         <motion.button
-                            onClick={() => setActiveTab('schedule')}
-                            className={`py-4 text-sm font-medium ${activeTab === 'schedule' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
-                            animate={activeTab === 'schedule' ? "active" : "inactive"}
+                            onClick={() => setActiveTab('faq')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'faq' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'faq' ? "active" : "inactive"}
                             initial="inactive"
                             variants={tabVariants}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            {tReact('younglearners.tabs.schedule')}
+                            {tReact('younglearners.tabs.faq')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('plans')}
@@ -205,17 +206,6 @@ export default function YoungLearners() {
                             whileTap={{ scale: 0.95 }}
                         >
                             {tReact('younglearners.tabs.plans')}
-                        </motion.button>
-                        <motion.button
-                            onClick={() => setActiveTab('faq')}
-                            className={`py-4 text-sm font-medium ${activeTab === 'faq' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
-                            animate={activeTab === 'faq' ? "active" : "inactive"}
-                            initial="inactive"
-                            variants={tabVariants}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            {tReact('younglearners.tabs.faq')}
                         </motion.button>
                     </motion.div>
                 </motion.div>
@@ -229,10 +219,7 @@ export default function YoungLearners() {
                 >
                     {activeTab === 'overview' && (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                    variants={fadeIn}
                         >
                             {/* About this program */}
                             <motion.div

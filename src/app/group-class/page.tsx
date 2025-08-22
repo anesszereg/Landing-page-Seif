@@ -103,7 +103,7 @@ export default function BookSession() {
                     variants={fadeIn}
                 >
                     <motion.div
-                        className="flex space-x-4 md:space-x-8 min-w-max"
+                        className="flex space-x-4 gap-4 md:space-x-8 min-w-max"
                         variants={staggerContainer}
                     >
                         <motion.button
@@ -141,7 +141,7 @@ export default function BookSession() {
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('reviews')}
-                            className={`py-4 text-sm font-medium ${activeTab === 'reviews' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            className={`py-4 text-sm font-medium ${activeTab === 'reviews' ? 'text-yellow-500' : 'text-black  hover:text-gray-700'}`}
                             animate={activeTab === 'reviews' ? "active" : "inactive"}
                             initial="inactive"
                             variants={tabVariants}
@@ -150,17 +150,7 @@ export default function BookSession() {
                         >
                             {tReact('groupclass.tabs.reviews')}
                         </motion.button>
-                        <motion.button
-                            onClick={() => setActiveTab('schedule')}
-                            className={`py-4 text-sm font-medium ${activeTab === 'schedule' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
-                            animate={activeTab === 'schedule' ? "active" : "inactive"}
-                            initial="inactive"
-                            variants={tabVariants}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            {tReact('groupclass.tabs.schedule')}
-                        </motion.button>
+                       
                     </motion.div>
                 </motion.div>
 
@@ -523,7 +513,7 @@ export default function BookSession() {
                                     <p className="text-gray-700">{tReact('groupclass.faq.a7')}</p>
                                 </div>
 
-                                <div className="text-center mt-12">
+                                {/* <div className="text-center mt-12">
                                     <motion.button
                                         onClick={() => setActiveTab('schedule')}
                                         className="bg-yellow-400 text-black font-medium py-3 px-8 rounded-full transition-colors inline-block"
@@ -532,162 +522,11 @@ export default function BookSession() {
                                     >
                                         {tReact('groupclass.faq.schedulebutton')}
                                     </motion.button>
-                                </div>
+                                </div> */}
                             </div>
                         </motion.div>
                     )}
 
-                    {activeTab === 'schedule' && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                {/* A1.1 Beginner */}
-                                <div className="border border-gray-200 rounded-lg p-6 flex flex-col">
-                                    <div className="text-center mb-6">
-                                        <h3 className="text-4xl font-bold text-black mb-1">{tReact('groupclass.level.a1.title')}</h3>
-                                        <p className="text-lg text-black mb-2">{tReact('groupclass.level.a1.subtitle')}</p>
-                                        <p className="font-medium text-black">{tReact('groupclass.level.a1.price')}</p>
-                                        <p className="text-xl font-bold mb-2 text-black">{tReact('groupclass.level.a1.usd')}</p>
-                                    </div>
-
-                                    <div className="space-y-3 mb-6 flex-grow">
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.sessions')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.groups')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.dynamic')}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-4">
-                                        <p className="font-medium mb-2 text-black">{tReact('groupclass.timeslots.title')}</p>
-                                        <div className="flex items-start mb-2">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.timeslots.one')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.timeslots.two')}</span>
-                                        </div>
-                                    </div>
-
-                                    <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full transition-colors w-full">
-                                        {tReact('groupclass.enroll')}
-                                    </button>
-                                </div>
-
-                                {/* A2.1 Elementary */}
-                                <div className="border border-gray-200 rounded-lg p-6 flex flex-col">
-                                    <div className="text-center mb-6">
-                                        <h3 className="text-4xl font-bold text-black mb-1">{tReact('groupclass.level.a2.title')}</h3>
-                                        <p className="text-lg text-black mb-2">{tReact('groupclass.level.a2.subtitle')}</p>
-                                        <p className="font-medium text-black">{tReact('groupclass.level.a2.price')}</p>
-                                        <p className="text-xl font-bold mb-2 text-black">{tReact('groupclass.level.a2.usd')}</p>
-                                    </div>
-
-                                    <div className="space-y-3 mb-6 flex-grow">
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.sessions')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.groups')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.dynamic')}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-4">
-                                        <p className="font-medium mb-2 text-black">{tReact('groupclass.timeslots.a2.title')}</p>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.timeslots.a2.one')}</span>
-                                        </div>
-                                    </div>
-
-                                    <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full transition-colors w-full">
-                                        {tReact('groupclass.enroll')}
-                                    </button>
-                                </div>
-
-                                {/* B1.1 Intermediate */}
-                                <div className="border border-gray-200 rounded-lg p-6 flex flex-col">
-                                    <div className="text-center mb-6">
-                                        <h3 className="text-4xl font-bold text-black mb-1">{tReact('groupclass.level.b1.title')}</h3>
-                                        <p className="text-lg text-black mb-2">{tReact('groupclass.level.b1.subtitle')}</p>
-                                        <p className="font-medium text-black">{tReact('groupclass.level.b1.price')}</p>
-                                        <p className="text-xl font-bold mb-2 text-black">{tReact('groupclass.level.b1.usd')}</p>
-                                    </div>
-
-                                    <div className="space-y-3 mb-6 flex-grow">
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.sessions')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.groups')}</span>
-                                        </div>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.features.dynamic')}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-4">
-                                        <p className="font-medium mb-2 text-black">{tReact('groupclass.timeslots.b1.title')}</p>
-                                        <div className="flex items-start">
-                                            <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                            <span className="text-black">{tReact('groupclass.timeslots.b1.one')}</span>
-                                        </div>
-                                    </div>
-
-                                    <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 rounded-full transition-colors w-full">
-                                        {tReact('groupclass.enroll')}
-                                    </button>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
                 </motion.div>
             </motion.div>
             <Footer />

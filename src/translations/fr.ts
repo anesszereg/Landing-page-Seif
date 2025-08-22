@@ -6,12 +6,22 @@ const frenchTranslations = {
   'navbar.blog': 'Blog',
   'navbar.contactUs': 'Contact',
   'navbar.bookSession': 'Réserver votre session gratuite',
-  
+
   // Hero Section
   'hero.title': 'Votre voyage vers la maîtrise de l\'espagnol commence ici',
   'hero.subtitle': 'Réservez votre séance d\'essai gratuite',
   'hero.cta': 'Réservez votre séance gratuite',
-  
+
+  // New Spanish Hero Content
+  'hero.aprende': '¡Aprende',
+  'hero.espanol': 'español',
+  'hero.con': 'con',
+  'hero.pasion': 'pasión!',
+  'hero.bienvenido': '¡Bienvenido!',
+  'hero.description': 'Je suis Seif, professeur passionné d\'espagnol. Ma mission est de vous aider à parler cette langue avec confiance, que ce soit pour le travail, les voyages ou simplement pour enrichir votre culture. Mes cours d\'espagnol en ligne sont adaptés à tous les niveaux pour rendre l\'apprentissage agréable et efficace.',
+  'hero.button': 'Je commence maintenant',
+  'hero.speechBubble': '¡Hola!',
+
   // Team Section
   'team.title': 'Rencontrez notre équipe d\'experts',
   'team.description': 'Notre équipe de professeurs spécialisés en espagnol apporte une expertise et des méthodes d\'enseignement diversifiées pour vous aider à atteindre la fluidité. Chaque instructeur se concentre sur différents aspects de l\'acquisition de la langue pour créer une expérience d\'apprentissage complète.',
@@ -21,7 +31,7 @@ const frenchTranslations = {
   'team.nada.description': " Je conçois nos supports de cours en mettant l'accent sur l'apprentissage interactif et le suivi personnalisé des progrès. Ma formation en linguistique me permet de décomposer des concepts grammaticaux complexes en leçons digestibles qui se connectent à des scénarios du monde réel. Je suis passionnée par l'aide aux étudiants à développer des schémas d'expression naturels.",
   'team.feriel.role': "Spécialiste en immersion culturelle",
   'team.feriel.description': " J'intègre des expériences culturelles hispaniques authentiques dans nos leçons à travers la musique, la littérature et les expressions régionales. Ayant vécu dans plusieurs pays hispanophones, j'aide les étudiants à comprendre les nuances et les variations de la langue à travers différentes régions, vous assurant de vous sentir à l'aise dans n'importe quel environnement hispanophone.",
-  
+
   // Career Paths Section
   'careerPaths.title': 'Maîtrisez l\'espagnol. Progressez sans limites.',
   'careerPaths.cultural.title': 'Cours collectifs',
@@ -30,7 +40,7 @@ const frenchTranslations = {
   'careerPaths.career.description': 'Un prof rien que pour vous. Apprenez l\'espagnol à votre rythme, avec un accompagnement sur mesure qui vous permet de progresser rapidement et en toute confiance.',
   'careerPaths.academic.title': 'Espagnol pour enfants et ados',
   'careerPaths.academic.description': 'Faites découvrir l\'espagnol à votre enfant pas à pas, avec des cours amusants, clairs et adaptés à son rythme. Il apprendra en s\'amusant et gagnera en confiance.',
-  
+
   // Testimonial Section
   'testimonial.title': 'Ce que disent nos étudiants',
   'testimonial.description': 'Découvrez comment nos cours d\'espagnol ont transformé le parcours linguistique de nos étudiants.',
@@ -41,7 +51,7 @@ const frenchTranslations = {
   'testimonial.comment.4': "En tant qu'éducateur linguistique, je trouve que la méthodologie de Spanish with Seif est plus efficace que les approches traditionnelles. Le programme structuré combiné à des activités d'apprentissage interactives crée une expérience immersive qui accélère les progrès. Les perspectives culturelles intégrées à chaque leçon donnent vie à la langue.",
   'testimonial.comment.5': "Spanish with Seif est incroyable! Après avoir essayé diverses applications et cours collectifs ailleurs, ce programme s'est avéré le plus efficace de loin. L'attention personnalisée, même en groupe, garantit que chacun participe et progresse de manière constante. Les supports complémentaires sont excellents pour s'entraîner entre les cours.",
   'testimonial.comment.6': "Spanish with Seif excelle dans la création d'un environnement d'apprentissage favorable que d'autres programmes n'offrent pas. La progression claire entre les niveaux donne un sentiment d'accomplissement, et l'accent mis sur la pratique signifie que j'ai pu utiliser mon espagnol lors d'un récent voyage en Espagne avec confiance. Hautement recommandé pour les apprenants sérieux!",
-  
+
   // Blog Section
   'blog.title': 'Derniers articles de notre blog',
   'blog.readMore': 'Lire plus',
@@ -52,7 +62,7 @@ const frenchTranslations = {
   'blog.post3.title': 'Excellez dans vos examens avec nos leçons et devoirs soigneusement conçus',
   'blog.post3.category': 'Lycéens',
   'blog.viewAll': 'Voir tous les articles',
-  
+
   // Footer
   'footer.rights': 'Tous droits réservés',
   'footer.privacy': 'Politique de confidentialité',
@@ -60,7 +70,7 @@ const frenchTranslations = {
   'footer.newsletter': 'Que vous soyez débutant faisant vos premiers pas ou un apprenant chevronné visant la fluidité, notre newsletter est votre boussole.',
   'footer.email.placeholder': 'nom@email.com',
   'footer.subscribe': 'S\'abonner',
-  
+
   // Contact Section
   'contact.title': 'Contactez-nous',
   'contact.description': 'Vous avez des questions sur nos cours ou souhaitez planifier une séance? Contactez-nous et notre équipe vous répondra dans les plus brefs délais.',
@@ -79,7 +89,7 @@ const frenchTranslations = {
   'contact.form.sending': 'Envoi en cours...',
   'contact.form.success': 'Message envoyé avec succès!',
   'contact.form.error': 'Erreur lors de l\'envoi du message. Veuillez réessayer.',
-  
+
   // RoadMap Section
   'roadmap.title': 'Feuille de route vers la maîtrise de l\'espagnol',
   'roadmap.description': 'Faites le premier pas vers la maîtrise de l\'espagnol. Découvrez nos cours structurés conçus pour élever vos compétences.',
@@ -95,7 +105,7 @@ const frenchTranslations = {
   'roadmap.course.05.description': 'Maîtrisez votre fluidité et abordez des sujets complexes avec confiance.',
   'roadmap.course.06.title': 'Fluidité quasi-native',
   'roadmap.course.06.description': 'Affinez vos compétences pour communiquer à un niveau proche de celui des locuteurs natifs.',
-  
+
   // Young Learners Page
   'younglearners.title': 'Espagnol pour jeunes apprenants',
   'younglearners.subtitle': 'Cours d\'espagnol amusants et engageants conçus spécifiquement pour les enfants',
@@ -103,7 +113,9 @@ const frenchTranslations = {
   'younglearners.breadcrumb.page': 'Espagnol pour jeunes apprenants',
   'younglearners.tabs.overview': 'Aperçu',
   'younglearners.tabs.reviews': 'Avis',
-  'younglearners.tabs.schedule': 'Emploi du temps',
+  'younglearners.tabs.schedule': 'S\'inscrire',
+  'younglearners.tabs.faq': 'FAQ',
+  'younglearners.tabs.plans': 'Plans',
   'younglearners.overview.title': 'À propos de notre programme pour jeunes apprenants',
   'younglearners.overview.description': 'Notre programme Espagnol pour jeunes apprenants est spécialement conçu pour rendre l\'apprentissage des langues amusant, engageant et efficace pour les enfants de 5 à 12 ans. En utilisant des jeux, des chansons, des histoires et des activités interactives, nous créons un environnement immersif où les enfants absorbent naturellement l\'espagnol tout en s\'amusant. Nos méthodes d\'enseignement sont adaptées à l\'âge et conçues pour maintenir les jeunes esprits engagés tout au long de chaque leçon.',
   'younglearners.features.title': 'Caractéristiques du programme',
@@ -136,15 +148,88 @@ const frenchTranslations = {
   'younglearners.form.message': 'Informations supplémentaires',
   'younglearners.form.submit': 'Soumettre l\'inscription',
   'younglearners.form.submitting': 'Soumission en cours...',
-  
+
+  // young leaners plans :
+  'younglearners.plans.title': 'Nos Formules pour Jeunes Apprenants',
+  'younglearners.plans.subtitle': 'Choisissez le plan idéal pour votre enfant',
+
+  'younglearners.plans.package1.title': 'Formule Explorateurs',
+  'younglearners.plans.package1.price': '15 000 DA (1 500 DA/heure)',
+  'younglearners.plans.package1.usd': '120 $ (12 $/heure)',
+  'younglearners.plans.package1.description': 'Parfait pour initier votre enfant aux bases de l’espagnol.',
+  'younglearners.plans.package1.features': [
+    '10 leçons interactives avec un enseignant spécialisé pour enfants',
+    'Supports pédagogiques adaptés à l’âge',
+    'Suivi de la progression pour les parents',
+    'Valable 3 mois'
+  ],
+
+  'younglearners.plans.package2.title': 'Formule Aventuriers',
+  'younglearners.plans.package2.price': '25 000 DA (1 250 DA/heure)',
+  'younglearners.plans.package2.usd': '200 $ (10 $/heure)',
+  'younglearners.plans.package2.description': 'Notre option la plus populaire pour un apprentissage régulier et progressif.',
+  'younglearners.plans.package2.features': [
+    '20 leçons interactives avec un enseignant spécialisé pour enfants',
+    'Supports pédagogiques complets et activités ludiques',
+    'Évaluations intermédiaires et finales des progrès',
+    'Valable 5 mois'
+  ],
+
+  'younglearners.plans.package3.title': 'Formule Fluidité',
+  'younglearners.plans.package3.price': '33 000 DA (1 100 DA/heure)',
+  'younglearners.plans.package3.usd': '270 $ (9 $/heure)',
+  'younglearners.plans.package3.description': 'Programme complet pour les enfants prêts à atteindre la fluidité conversationnelle.',
+  'younglearners.plans.package3.features': [
+    '30 leçons interactives avec un enseignant spécialisé pour enfants',
+    'Supports pédagogiques avancés et activités culturelles',
+    'Évaluations régulières et retours détaillés',
+    'Valable 6 mois'
+  ],
+
+  'younglearners.plans.trialbutton': 'Réservez une Séance d’Essai Gratuite',
+
+  //  FAQ Learners:
+
+  'younglearners.faq.title': 'Foire aux questions',
+
+  'younglearners.faq.q1': 'À partir de quel âge mon enfant peut-il commencer ?',
+  'younglearners.faq.a1': 'Notre programme s’adresse aux enfants de 8 à 12 ans, avec des approches adaptées selon les tranches d’âge.',
+
+  'younglearners.faq.q2': 'Comment se déroulent les cours ?',
+  'younglearners.faq.a2': 'Les cours sont en ligne avec un enseignant expert spécialisé dans l’enseignement aux enfants, sous forme de leçons courtes et interactives pour maintenir leur attention.',
+
+  'younglearners.faq.q3': 'Quelle est la durée d’une leçon ?',
+  'younglearners.faq.a3': 'Chaque séance dure 60 minutes, ce qui est adapté à la capacité de concentration d’un enfant.',
+
+  'younglearners.faq.q4': 'Mon enfant doit-il déjà connaître l’espagnol ?',
+  'younglearners.faq.a4': 'Pas du tout ! Nous proposons des cours pour tous les niveaux, y compris pour les grands débutants.',
+
+  'younglearners.faq.q5': 'Quels sont les prérequis techniques ?',
+  'younglearners.faq.a5': 'Un ordinateur ou une tablette, une bonne connexion internet, ainsi qu’un micro et une caméra pour participer activement.',
+
+  'younglearners.faq.q6': 'Les parents peuvent-ils assister aux cours ?',
+  'younglearners.faq.a6': 'Oui, surtout pour les plus jeunes enfants, afin de s’assurer que tout se passe bien pendant la leçon.',
+
+  'younglearners.faq.q7': 'Y a-t-il une évaluation ou un certificat ?',
+  'younglearners.faq.a7': 'Oui, mais de manière ludique et sans stress ! L’évaluation sert à suivre les progrès et à motiver l’enfant. Un certificat encourageant est remis à la fin.',
+
+  'younglearners.faq.q8': 'Quels sont les moyens de paiement ?',
+  'younglearners.faq.a8': 'Le paiement peut se faire par CCP, virement bancaire ou carte Visa/Mastercard. Si aucune de ces options ne vous convient, écrivez-nous à spanishwithseif@gmail.com et nous trouverons une solution.',
+
+  'younglearners.faq.schedulebutton': 'Inscrire mon enfant maintenant',
+
+
   // Group Class Page
   'groupclass.title': 'Cours d\'espagnol en groupe',
   'groupclass.subtitle': 'Apprenez l\'espagnol dans un environnement amusant et collaboratif',
   'groupclass.breadcrumb.home': 'Accueil',
   'groupclass.breadcrumb.page': 'Cours d\'espagnol en groupe',
   'groupclass.tabs.overview': 'Aperçu',
+  'groupclass.tabs.plans': 'Plans',
   'groupclass.tabs.reviews': 'Avis',
-  'groupclass.tabs.schedule': 'Emploi du temps',
+  'groupclass.tabs.schedule': 'S\'inscrire',
+  'groupclass.tabs.faq': 'FAQ',
+
   'groupclass.overview.title': 'À propos de ce parcours',
   'groupclass.overview.description': 'Ce parcours est conçu pour les personnes n\'ayant aucune connaissance préalable de l\'espagnol. Il couvre la grammaire essentielle, le vocabulaire et les compétences conversationnelles pour vous aider à commencer à communiquer efficacement en espagnol. Grâce à des leçons interactives, des exercices pratiques et des scénarios de la vie réelle, vous gagnerez en confiance pour parler, écouter, lire et écrire en espagnol.',
   'groupclass.features.title': 'Ce que vous apprendrez',
@@ -184,19 +269,66 @@ const frenchTranslations = {
   'groupclass.form.level.beginner': 'Débutant (Aucune connaissance préalable)',
   'groupclass.form.level.elementary': 'Élémentaire (Quelques bases)',
   'groupclass.form.level.intermediate': 'Intermédiaire (Peut former des phrases simples)',
-  'groupclass.form.message': 'Commentaires ou questions supplémentaires',
-  'groupclass.form.submit': 'Soumettre l\'inscription',
-  'groupclass.form.submitting': 'Soumission en cours...',
-  'groupclass.form.success': 'Merci pour votre inscription ! Nous vous contacterons rapidement pour confirmer votre inscription et vous fournir les prochaines étapes.',
-  'groupclass.form.error': 'Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer.',
-  
+  'groupclass.form.level.advanced': 'Avancé (Conversation courante)',
+  'groupclass.form.message': 'Message (optionnel)',
+  'groupclass.form.submit': 'Envoyer',
+  'groupclass.form.success': 'Merci ! Votre demande a été envoyée. Nous vous contacterons bientôt.',
+  'groupclass.form.error': 'Une erreur s\'est produite. Veuillez réessayer.',
+
+  // Group Class Plans section
+  'groupclass.plans.title': 'Forfaits de cours en groupe',
+  'groupclass.plans.subtitle': 'Rejoignez nos cours d\'espagnol en petit groupe pour une expérience d\'apprentissage collaborative et engageante',
+  'groupclass.plans.package1.title': 'Forfait A1.1 Débutant',
+  'groupclass.plans.package1.price': '9000DA /32 heures',
+  'groupclass.plans.package1.usd': '70 USD',
+  'groupclass.plans.package1.description': 'Commencez votre parcours en espagnol sans connaissances préalables requises',
+  'groupclass.plans.package1.features': ['16 séances (4 heures par semaine)', 'Petits groupes de 6 à 10 étudiants', 'Programme complet pour débutants', 'Matériel d\'apprentissage inclus', 'Évaluations régulières des progrès'],
+  'groupclass.plans.package2.title': 'Forfait A2.1 Élémentaire',
+  'groupclass.plans.package2.price': '9000DA /32 heures',
+  'groupclass.plans.package2.usd': '70 USD',
+  'groupclass.plans.package2.description': 'Développez vos connaissances de base et améliorez vos compétences de conversation pratique',
+  'groupclass.plans.package2.features': ['16 séances (4 heures par semaine)', 'Petits groupes de 6 à 10 étudiants', 'Programme élémentaire', 'Matériel d\'apprentissage inclus', 'Évaluations régulières des progrès'],
+  'groupclass.plans.package3.title': 'Forfait B1.1 Intermédiaire',
+  'groupclass.plans.package3.price': '9000DA /32 heures',
+  'groupclass.plans.package3.usd': '70 USD',
+  'groupclass.plans.package3.description': 'Améliorez votre espagnol avec des structures linguistiques plus complexes',
+  'groupclass.plans.package3.features': ['16 séances (4 heures par semaine)', 'Petits groupes de 6 à 10 étudiants', 'Programme intermédiaire', 'Matériel d\'apprentissage inclus', 'Évaluations régulières des progrès'],
+  'groupclass.plans.trialbutton': 'Inscrivez-vous maintenant',
+
   // Group Class Reviews
   'groupclass.reviews.title': 'Avis des Étudiants',
   'groupclass.reviews.text1': 'Les cours en groupe sont très amusants ! J\'adore apprendre avec d\'autres personnes et l\'instructeur s\'assure que tout le monde participe et apprend à son propre rythme. Nous pratiquons des conversations réelles que je peux utiliser immédiatement.',
   'groupclass.reviews.name1': 'Carlos Rodriguez',
   'groupclass.reviews.text2': 'J\'hésitais à propos des cours en groupe, pensant que je ne recevrais pas assez d\'attention, mais c\'est en fait incroyable. Je me suis fait des amis et nous pratiquons ensemble en dehors des cours. La petite taille du groupe garantit que chacun reçoit de l\'aide quand nécessaire.',
   'groupclass.reviews.name2': 'Maria Johnson',
-  
+
+  //  Group Class Page FAQ
+  'groupclass.faq.title': 'Foire Aux Questions',
+  'groupclass.faq.q1': 'Quels sont les avantages des cours en groupe ?',
+  'groupclass.faq.a1': 'Les cours en groupe offrent un environnement d’apprentissage collaboratif où vous pouvez pratiquer avec vos camarades, gagner en confiance grâce aux interactions régulières et bénéficier des questions et points de vue des autres. L’énergie d’un petit groupe crée une atmosphère motivante tout en garantissant une attention personnalisée de l’enseignant.',
+  'groupclass.faq.q2': 'Combien d’élèves y a-t-il dans chaque classe ?',
+  'groupclass.faq.a2': 'Nous maintenons des effectifs réduits de 6 à 10 étudiants maximum afin d’assurer un enseignement de qualité et de permettre à chacun de participer. Cette taille est idéale pour pratiquer la conversation tout en bénéficiant d’une attention individuelle.',
+  'groupclass.faq.q3': 'Que se passe-t-il si je manque un cours ?',
+  'groupclass.faq.a3': 'Si vous manquez une séance, vous recevrez les supports du cours et vous pourrez planifier un court rattrapage avec l’enseignant avant la prochaine séance. En cas de plusieurs absences, nous proposons des solutions pour vous aider à rester au niveau du programme.',
+  'groupclass.faq.q4': 'Comment savoir quel niveau me convient ?',
+  'groupclass.faq.a4': 'Si vous débutez en espagnol, commencez par A1.1. Si vous avez déjà quelques connaissances, nous proposons une évaluation gratuite pour déterminer le niveau approprié. Contactez-nous pour organiser cette évaluation avant de vous inscrire si vous n’êtes pas sûr de votre niveau actuel.',
+  'groupclass.faq.q5': 'Quelle est la méthode d’enseignement utilisée ?',
+  'groupclass.faq.a5': 'Nos cours utilisent une approche communicative qui équilibre la pratique de la conversation et l’apprentissage de la grammaire. Nous intégrons des activités interactives, des jeux de rôle et des supports authentiques afin de développer toutes les compétences linguistiques : expression orale, compréhension orale, lecture et écriture.',
+  'groupclass.faq.q6': 'Quels moyens de paiement acceptez-vous ?',
+  'groupclass.faq.a6': 'Nous acceptons les paiements par CCP, virement bancaire et Visa/Mastercard. Si vous avez besoin d’un autre mode de paiement, veuillez nous contacter à spanishwithseif@gmail.com pour obtenir de l’aide.',
+  'groupclass.faq.q7': 'Y a-t-il un certificat à la fin du cours ?',
+  'groupclass.faq.a7': 'Oui, après avoir terminé avec succès chaque niveau, vous recevrez un certificat de réussite indiquant le niveau atteint et les compétences acquises selon le Cadre Européen Commun de Référence pour les Langues (CECRL).',
+  'groupclass.faq.schedulebutton': 'Inscrivez-vous Maintenant',
+
+  // 'groupclass.reviews.name1': 'Sara L.',
+  // 'groupclass.reviews.text1': 'Les cours en groupe avec Seif ont été fantastiques ! La petite taille de la classe permet à chacun de recevoir de l’attention tout en profitant de l’apprentissage collectif. Le programme structuré et les activités interactives rendent l’apprentissage de l’espagnol agréable et efficace.',
+  // 'groupclass.reviews.name2': 'Miguel A.',
+  // 'groupclass.reviews.text2': 'J’étais hésitant au début à propos des cours en groupe, mais ils ont largement dépassé mes attentes. L’environnement collaboratif est très encourageant, et Seif veille à ce que chacun participe activement. Les apports culturels partagés en cours ont enrichi ma compréhension des pays hispanophones.',
+
+
+
+
+
   // About Page
   'about.title': 'À propos de nous',
   'about.mission.title': 'Notre Mission',
@@ -215,7 +347,7 @@ const frenchTranslations = {
   'about.progress.title': 'Progresser vers des niveaux plus élevés',
   'about.progress.description': 'Grâce à une méthode structurée et interactive, mes cours développent les quatre compétences linguistiques essentielles. À chaque niveau, nous renforcerons vos bases, élargirons votre vocabulaire et améliorerons vos compétences de communication afin que vous puissiez progresser vers des niveaux avancés en toute confiance !',
   'about.cta.button': 'Réservez votre séance gratuite',
-  
+
   // Blog Page
   'blog.breadcrumb': 'Accueil',
   'blog.breadcrumb.home': 'Accueil',
@@ -256,10 +388,78 @@ const frenchTranslations = {
   'private.breadcrumb.home': 'Accueil',
   'private.breadcrumb.page': 'Cours Particuliers d\'Espagnol',
   'private.tabs.overview': 'Aperçu',
+  'private.tabs.plans': 'Plans',
   'private.tabs.reviews': 'Témoignages',
-  'private.tabs.schedule': 'Réservation',
+  'private.tabs.schedule': 'S\'inscrire',
+  'private.tabs.faq': 'FAQ',
   'private.book.button': 'Réserver Votre Séance',
-  
+  'private.faq.title': 'Foire aux questions',
+'private.faq.q1': 'En quoi les cours particuliers sont-ils différents des cours en groupe ?',
+'private.faq.a1': 'Les cours particuliers offrent une expérience entièrement personnalisée, adaptée à votre style d’apprentissage, vos objectifs et votre rythme. Vous bénéficiez de 100 % de l’attention de l’enseignant, ce qui permet un retour immédiat, des supports personnalisés et une grande flexibilité dans la planification. Contrairement aux cours en groupe, les cours particuliers peuvent s’adapter à la volée pour se concentrer sur les domaines où vous avez besoin de plus de soutien ou d’accélération.',
+'private.faq.q2': 'Comment savoir quel forfait est le mieux adapté pour moi ?',
+'private.faq.a2': 'Le Forfait Basique est idéal pour les débutants, les objectifs à court terme ou ceux qui souhaitent essayer un cours particulier avant de s’engager dans davantage de séances. Le Forfait Standard convient à la plupart des apprenants qui recherchent une progression régulière. Le Forfait Premium est conçu pour un apprentissage intensif, des besoins professionnels ou des objectifs spécialisés. Nous vous recommandons de commencer par une séance d’essai gratuite afin d’évaluer vos besoins et de vous conseiller la meilleure option.',
+'private.faq.q3': 'Que se passe-t-il lors de la séance d’essai gratuite ?',
+'private.faq.a3': 'La séance d’essai gratuite de 30 minutes sert à la fois d’évaluation et d’introduction. Nous discuterons de vos objectifs d’apprentissage, évaluerons votre niveau actuel d’espagnol (le cas échéant), répondrons à vos questions et vous présenterons notre approche pédagogique. Cela nous permet de personnaliser un plan d’apprentissage et de vérifier que nous sommes bien adaptés à vos attentes avant tout engagement.',
+'private.faq.q4': 'Puis-je partager mes cours particuliers avec un ami ou un partenaire ?',
+'private.faq.a4': 'Oui, vous pouvez partager votre forfait avec une autre personne du même niveau d’espagnol moyennant un supplément de 30 %. Cela crée une expérience semi-privée tout en conservant un haut niveau de personnalisation. Les deux participants doivent assister ensemble aux mêmes séances.',
+'private.faq.q5': 'Puis-je demander un enseignant spécifique ?',
+'private.faq.a5': 'Oui, vous le pouvez. Si vous ne spécifiez pas de préférence, nous vous attribuerons l’enseignant le mieux adapté à vos besoins et objectifs.',
+'private.faq.q6': 'Quels moyens de paiement acceptez-vous ?',
+'private.faq.a6': 'Vous pouvez choisir le moyen qui vous convient le mieux : CCP, virement bancaire, Visa ou Mastercard. Après confirmation, vous pouvez commencer immédiatement avec l’enseignant en fonction de sa disponibilité. Si vous ne pouvez pas utiliser ces moyens de paiement, contactez-nous à spanishwithseif@gmail.com et nous vous aiderons.',
+'private.faq.q7': 'Puis-je annuler ou reporter un cours ?',
+'private.faq.a7': 'Oui, à condition de nous prévenir au moins 12 heures à l’avance afin d’éviter de perdre la séance. En cas d’urgence (problème de santé, circonstances exceptionnelles), informez-nous et nous trouverons une solution appropriée.',
+'private.faq.q8': 'À quelle vitesse vais-je progresser avec les cours particuliers ?',
+'private.faq.a8': 'La progression dépend de plusieurs facteurs : votre niveau de départ, vos expériences passées en apprentissage des langues, le temps de pratique entre les séances et vos objectifs. Cependant, les élèves en cours particuliers progressent généralement 2 à 3 fois plus vite que dans les cours en groupe grâce à l’attention personnalisée et à l’approche sur mesure. Nous définirons des étapes claires et évaluerons régulièrement vos progrès.',
+'private.faq.schedulebutton': 'Planifiez votre séance maintenant',
+
+
+
+  //private lessond plans:
+  'private.plans.title': 'Choisissez Votre Forfait de Cours Particuliers',
+'private.plans.subtitle': 'Sélectionnez le forfait qui correspond le mieux à vos objectifs et à votre emploi du temps',
+
+'private.plans.package1.title': 'Forfait Basique',
+'private.plans.package1.price': '12 000 DA / 8 séances',
+'private.plans.package1.usd': '88 USD',
+'private.plans.package1.description': 'Parfait pour les débutants qui se lancent dans l’apprentissage de l’espagnol ou pour ceux qui veulent atteindre des objectifs spécifiques à court terme.',
+'private.plans.package1.features': [
+  '8 cours particuliers (55 minutes chacun)',
+  'Supports pédagogiques personnalisés',
+  'Évaluations des progrès',
+  'Planification flexible',
+  'Assistance par email entre les cours'
+],
+
+'private.plans.package2.title': 'Forfait Standard',
+'private.plans.package2.price': '22 000 DA / 16 séances',
+'private.plans.package2.usd': '161 USD',
+'private.plans.package2.description': 'Notre option la plus populaire pour progresser régulièrement avec une expérience d’apprentissage complète.',
+'private.plans.package2.features': [
+  '16 cours particuliers (55 minutes chacun)',
+  'Élaboration d’un programme personnalisé',
+  'Évaluations régulières des progrès',
+  'Planification prioritaire',
+  'Assistance illimitée par email',
+  'Un report gratuit par mois'
+],
+
+'private.plans.package3.title': 'Forfait Premium',
+'private.plans.package3.price': '30 000 DA / 24 séances',
+'private.plans.package3.usd': '220 USD',
+'private.plans.package3.description': 'L’expérience immersive ultime pour les apprenants sérieux qui souhaitent progresser rapidement avec un accompagnement maximal.',
+'private.plans.package3.features': [
+  '24 cours particuliers (55 minutes chacun)',
+  'Plan d’apprentissage entièrement personnalisé',
+  'Contenus spécialisés selon vos besoins',
+  'Activités d’immersion culturelle',
+  'Planification flexible avec réservation prioritaire',
+  'Assistance illimitée par email et WhatsApp',
+  'Supports et ressources offerts'
+],
+
+'private.plans.trialbutton': 'Réservez Votre Séance d’Essai Gratuite',
+
+
   // Overview Tab
   'private.overview.about.title': 'À propos de Nos Cours Particuliers d\'Espagnol',
   'private.overview.about.description': 'Les cours particuliers d\'Espagnol avec Seif offrent une expérience d\'apprentissage immersive et personnalisée, adaptée à vos objectifs spécifiques, à votre rythme et à votre style d\'apprentissage. Que vous soyez débutant cherchant à construire une base solide, un apprenant intermédiaire visant à surmonter des défis spécifiques, ou un étudiant avancé concentré sur la fluidité et les nuances culturelles, notre enseignement individuel vous garantit une attention dédiée et un programme entièrement personnalisé qui accélère votre progression et renforce votre confiance dans la communication réelle en espagnol.',
@@ -269,7 +469,7 @@ const frenchTranslations = {
   'private.overview.benefits.item3': 'Retour personnalisé en temps réel et correction de prononciation par un locuteur natif',
   'private.overview.benefits.item4': 'Approches d\'apprentissage individualisées qui s\'adaptent à vos défis uniques et à votre style d\'apprentissage',
   'private.overview.benefits.item5': 'Éléments d\'immersion culturelle incorporés dans chaque leçon pour une acquisition authentique de la langue',
-  
+
   // Reviews Tab
   'private.reviews.title': 'Ce que Nos Étudiants Disent',
   'private.reviews.review1.text': 'Les cours particuliers avec Seif ont complètement transformé mes compétences en espagnol. Il a adapté chaque séance à mes besoins de communication professionnelle, introduisant un vocabulaire spécialisé et des scénarios pratiques que j\'utilise quotidiennement dans mon travail avec des clients latino-américains. J\'ai fait plus de progrès en 8 semaines avec Seif qu\'en une année entière de cours collectifs traditionnels.',
@@ -278,7 +478,7 @@ const frenchTranslations = {
   'private.reviews.review2.name': 'Miguel T., Passionné de Voyages',
   'private.reviews.review3.text': 'En tant que personne dyslexique, j\'étais anxieux à l\'idée d\'apprendre une nouvelle langue. Seif a fait preuve d\'une patience extraordinaire et a développé des approches visuelles et auditives créatives qui fonctionnaient parfaitement avec mon style d\'apprentissage. Il a intégré mon intérêt pour la musique et le cinéma espagnols pour rendre les leçons engageantes et mémorables. L\'attention personnalisée et les méthodes d\'enseignement adaptatives ont fait toute la différence.',
   'private.reviews.review3.name': 'Jamal K., Producteur de Musique',
-  
+
   // Schedule Tab (Booking Form)
   'private.schedule.title': 'Réservez votre cours particulier',
   'private.schedule.success': 'Votre demande de réservation a été soumise avec succès ! Nous vous contacterons bientôt pour confirmer votre cours particulier.',

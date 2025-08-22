@@ -155,7 +155,7 @@ export default function PrivateLessons() {
                     variants={fadeIn}
                 >
                     <motion.div
-                        className="flex space-x-4 md:space-x-8 min-w-max"
+                        className="flex space-x-4  gap-4 md:space-x-8 min-w-max"
                         variants={staggerContainer}
                     >
                         <motion.button
@@ -168,17 +168,6 @@ export default function PrivateLessons() {
                             whileTap={{ scale: 0.95 }}
                         >
                             {t('private.tabs.overview')}
-                        </motion.button>
-                        <motion.button
-                            onClick={() => setActiveTab('plans')}
-                            className={`py-4 text-sm font-medium ${activeTab === 'plans' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
-                            animate={activeTab === 'plans' ? "active" : "inactive"}
-                            initial="inactive"
-                            variants={tabVariants}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            {t('private.tabs.plans')}
                         </motion.button>
                         <motion.button
                             onClick={() => setActiveTab('reviews')}
@@ -203,6 +192,17 @@ export default function PrivateLessons() {
                             {t('private.tabs.faq')}
                         </motion.button>
                         <motion.button
+                            onClick={() => setActiveTab('plans')}
+                            className={`py-4 text-sm font-medium ${activeTab === 'plans' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
+                            animate={activeTab === 'plans' ? "active" : "inactive"}
+                            initial="inactive"
+                            variants={tabVariants}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {t('private.tabs.plans')}
+                        </motion.button>
+                        {/* <motion.button
                             onClick={() => setActiveTab('schedule')}
                             className={`py-4 text-sm font-medium ${activeTab === 'schedule' ? 'text-yellow-500' : 'text-black hover:text-gray-700'}`}
                             animate={activeTab === 'schedule' ? "active" : "inactive"}
@@ -212,7 +212,7 @@ export default function PrivateLessons() {
                             whileTap={{ scale: 0.95 }}
                         >
                             {t('private.tabs.schedule')}
-                        </motion.button>
+                        </motion.button> */}
                     </motion.div>
                 </motion.div>
 
@@ -225,10 +225,7 @@ export default function PrivateLessons() {
                 >
                     {activeTab === 'overview' && (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                            variants={fadeIn}
                         >
                             {/* About this track */}
                             <motion.div
@@ -371,150 +368,7 @@ export default function PrivateLessons() {
                         </div>
                     )}
 
-                    {activeTab === 'schedule' && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('private.schedule.title')}</h2>
-
-                            {/* Booking Success Message */}
-                            {submitSuccess && (
-                                <motion.div
-                                    className="bg-green-50 border border-green-200 text-green-800 rounded-md p-4 mb-6"
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                >
-                                    <p>{t('private.schedule.success')}</p>
-                                </motion.div>
-                            )}
-
-                            {/* Booking Form */}
-                            {!submitSuccess && (
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    {/* Name and Email */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.name')}</label>
-                                            <input
-                                                type="text"
-                                                id="name"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                required
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.email')}</label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                required
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Phone and Level */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.phone')}</label>
-                                            <input
-                                                type="tel"
-                                                id="phone"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="level" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.level')}</label>
-                                            <select
-                                                id="level"
-                                                name="level"
-                                                value={formData.level}
-                                                onChange={handleChange}
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                            >
-                                                <option value="beginner">{t('private.schedule.form.level.beginner')}</option>
-                                                <option value="intermediate">{t('private.schedule.form.level.intermediate')}</option>
-                                                <option value="advanced">{t('private.schedule.form.level.advanced')}</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    {/* Date and Time */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div>
-                                            <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.date')}</label>
-                                            <input
-                                                type="date"
-                                                id="date"
-                                                name="date"
-                                                value={formData.date}
-                                                onChange={handleChange}
-                                                required
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="time" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.time')}</label>
-                                            <input
-                                                type="time"
-                                                id="time"
-                                                name="time"
-                                                value={formData.time}
-                                                onChange={handleChange}
-                                                required
-                                                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Message */}
-                                    <div>
-                                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{t('private.schedule.form.message')}</label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            rows={4}
-                                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500"
-                                        ></textarea>
-                                    </div>
-
-                                    {/* Error Message */}
-                                    {submitError && (
-                                        <div className="text-red-500 text-sm">
-                                            {submitError || t('private.schedule.form.error')}
-                                        </div>
-                                    )}
-
-                                    {/* Submit Button */}
-                                    <div className="flex justify-center">
-                                        <motion.button
-                                            type="submit"
-                                            className="bg-yellow-400 text-black font-medium py-2 sm:py-3 px-6 sm:px-8 text-sm sm:text-base rounded-full transition-colors disabled:opacity-50"
-                                            whileHover={{ scale: 1.05, backgroundColor: "#eab308" }}
-                                            whileTap={{ scale: 0.95 }}
-                                            disabled={isSubmitting}
-                                        >
-                                            {isSubmitting ? 'Submitting...' : t('private.schedule.form.submit')}
-                                        </motion.button>
-                                    </div>
-                                </form>
-                            )}
-                        </motion.div>
-                    )}
+                   
                     {activeTab === 'plans' && (
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -533,15 +387,15 @@ export default function PrivateLessons() {
                                     <div className="p-6">
                                         <h3 className="text-xl font-bold text-gray-900 mb-2">{t('private.plans.package1.title')}</h3>
                                         <div className="text-yellow-500 text-2xl font-bold mb-1">{t('private.plans.package1.price')}</div>
-                                        <div className="text-gray-600 mb-4">{t('private.plans.package1.usd')}</div>
-                                        <p className="text-gray-700 mb-4">{t('private.plans.package1.description')}</p>
+                                        <div className="text-black mb-4">{t('private.plans.package1.usd')}</div>
+                                        <p className="text-black     mb-4">{t('private.plans.package1.description')}</p>
                                         <ul className="space-y-2 mb-6">
                                             {(t('private.plans.package1.features', { returnObjects: true }) as unknown as string[]).map((feature: string, index: number) => (
                                                 <li key={index} className="flex items-start">
                                                     <svg className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                                     </svg>
-                                                    <span>{feature}</span>
+                                                    <span className='text-gray-500' >{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -561,7 +415,7 @@ export default function PrivateLessons() {
                                                     <svg className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                                     </svg>
-                                                    <span>{feature}</span>
+                                                    <span className='text-gray-500'>{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -574,14 +428,14 @@ export default function PrivateLessons() {
                                         <h3 className="text-xl font-bold text-gray-900 mb-2">{t('private.plans.package3.title')}</h3>
                                         <div className="text-yellow-500 text-2xl font-bold mb-1">{t('private.plans.package3.price')}</div>
                                         <div className="text-gray-600 mb-4">{t('private.plans.package3.usd')}</div>
-                                        <p className="text-gray-700 mb-4">{t('private.plans.package3.description')}</p>
+                                        <p className="text-black mb-4">{t('private.plans.package3.description')}</p>
                                         <ul className="space-y-2 mb-6">
                                             {(t('private.plans.package3.features', { returnObjects: true }) as unknown as string[]).map((feature: string, index: number) => (
                                                 <li key={index} className="flex items-start">
                                                     <svg className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                                     </svg>
-                                                    <span>{feature}</span>
+                                                    <span className='text-gray-500'>{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -590,7 +444,7 @@ export default function PrivateLessons() {
                             </div>
 
                             {/* Book Trial Button */}
-                            <div className="flex justify-center mt-8">
+                            {/* <div className="flex justify-center mt-8">
                                 <motion.button
                                     onClick={() => setActiveTab('schedule')}
                                     className="bg-yellow-400 text-black font-medium py-3 px-8 rounded-full transition-colors"
@@ -599,7 +453,7 @@ export default function PrivateLessons() {
                                 >
                                     {t('private.plans.trialbutton')}
                                 </motion.button>
-                            </div>
+                            </div> */}
                         </motion.div>
                     )}
 

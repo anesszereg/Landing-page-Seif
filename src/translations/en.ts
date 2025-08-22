@@ -108,6 +108,16 @@ const englishTranslations = {
   'hero.subtitle': 'Book your free trial session',
   'hero.cta': 'Book Your Free Session',
   
+  // New Spanish Hero Content
+  'hero.aprende': '¡Aprende',
+  'hero.espanol': 'español',
+  'hero.con': 'con',
+  'hero.pasion': 'pasión!',
+  'hero.bienvenido': '¡Bienvenido!',
+  'hero.description': 'I am Seif, a passionate Spanish teacher. My mission is to help you speak this language confidently, whether for work, travel or simply to enrich your culture. My online Spanish courses are adapted to all levels to make learning enjoyable and effective.',
+  'hero.button': 'Get Started Now',
+  'hero.speechBubble': '¡Hola!',
+  
   // Team Section
   'team.title': 'Meet Our Expert Team',
   'team.description': 'Our team of specialized Spanish language instructors brings diverse expertise and teaching methods to help you achieve fluency. Each instructor focuses on different aspects of language acquisition to create a comprehensive learning experience.',

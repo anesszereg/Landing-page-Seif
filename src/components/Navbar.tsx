@@ -67,7 +67,7 @@ export default function Navbar() {
   }, [isMobileMenuOpen, isLanguageMenuOpen]);
   
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-30 bg-white w-full px-4 sm:px-6 py-3 flex justify-between items-center border-b border-gray-100 transition-all ${scrolled ? 'shadow-md' : ''}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-30 bg-white gap-4 w-full px-4 sm:px-6 py-3 flex justify-between items-center border-b border-gray-100 transition-all ${scrolled ? 'shadow-md' : ''}`}>
       {/* Logo */}
 
       <Link href="/" className="flex items-center">
@@ -76,7 +76,7 @@ export default function Navbar() {
       
       {/* Center Navigation - Desktop */}
       <div className="hidden md:block ml-50">
-        <div className="border border-yellow-400 rounded-full px-4 py-1 flex items-center space-x-8">
+        <div className="border gap-4 border-yellow-400 rounded-full px-4 py-1 flex items-center space-x-8">
           <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">{t('navbar.about')}</Link>
           <button onClick={() => scrollToSection('learn')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">{t('navbar.learn')}</button>
           <Link href="/blog" className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">{t('navbar.blog')}</Link>
@@ -84,7 +84,7 @@ export default function Navbar() {
       </div>
       
       {/* Right Side - Desktop */}
-      <div className="hidden md:flex text-black items-center space-x-4">
+      <div className="hidden md:flex text-black gap-4 items-center space-x-4">
         <Link href="/#contact">
         <button onClick={() => scrollToSection('contact')} className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">{t('navbar.contactUs')}</button>
         </Link>

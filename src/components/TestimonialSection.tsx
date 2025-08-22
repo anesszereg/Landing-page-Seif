@@ -16,60 +16,130 @@ interface Testimonial {
   avatar: string;
 }
 
-export default function TestimonialSection() {
+type CourseType = 'general' | 'private' | 'groupclass' | 'younglearners';
+
+interface TestimonialSectionProps {
+  courseType?: CourseType;
+}
+
+export default function TestimonialSection({ courseType = 'general' }: TestimonialSectionProps) {
   const [showAll, setShowAll] = useState(false);
   const { t } = useTranslation();
   
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: "Leslie M",
-      rating: 5,
-      comment: t('testimonial.comment.1'),
-      date: "Feb 28, 2024",
-      avatar: "/assets/images/profile.webp"
-    },
-    {
-      id: 2,
-      name: "Maria C",
-      rating: 5,
-      comment: t('testimonial.comment.2'),
-      date: "Jun 19, 2025",
-      avatar: "/assets/images/profile.webp"
-    },
-    {
-      id: 3,
-      name: "Chris S",
-      rating: 5,
-      comment: t('testimonial.comment.3'),
-      date: "Apr 18, 2025",
-      avatar: "/assets/images/profile.webp"
-    },
-    {
-      id: 4,
-      name: "Gaelle",
-      rating: 5,
-      comment: t('testimonial.comment.4'),
-      date: "Mar 26, 2024",
-      avatar: "/assets/images/profile.webp"
-    },
-    {
-      id: 5,
-      name: "Kathy",
-      rating: 5,
-      comment: t('testimonial.comment.5'),
-      date: "Feb 2, 2024",
-      avatar: "/assets/images/profile.webp"
-    },
-    {
-      id: 6,
-      name: "Harriet Waninge",
-      rating: 5,
-      comment: t('testimonial.comment.6'),
-      date: "Aug 26, 2024",
-      avatar: "/assets/images/profile.webp"
-    }
-  ];
+  // Get testimonials - combining reviews from all course types
+  const getTestimonials = (): Testimonial[] => {
+    // Combining 3 reviews from each course type
+    const combinedTestimonials = [
+      // Private course reviews
+      {
+        id: 1,
+        name: t('private.reviews.review1.name'),
+        rating: 5,
+        comment: t('private.reviews.review1.text'),
+        date: "Feb 28, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 2,
+        name: t('private.reviews.review2.name'),
+        rating: 5,
+        comment: t('private.reviews.review2.text'),
+        date: "Mar 15, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 3,
+        name: t('private.reviews.review3.name'),
+        rating: 5,
+        comment: t('private.reviews.review3.text'),
+        date: "Jan 10, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      
+      // Group class reviews
+      {
+        id: 4,
+        name: t('groupclass.reviews.name1'),
+        rating: 5,
+        comment: t('groupclass.reviews.text1'),
+        date: "Feb 18, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 5,
+        name: t('groupclass.reviews.name2'),
+        rating: 5,
+        comment: t('groupclass.reviews.text2'),
+        date: "Mar 22, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      // Adding a general review to make up 3 for groupclass
+      {
+        id: 6,
+        name: "Chris S",
+        rating: 5,
+        comment: t('testimonial.comment.3'),
+        date: "Apr 18, 2023",
+        avatar: "/assets/images/profile.webp"
+      },
+      
+      // Young learners reviews
+      {
+        id: 7,
+        name: t('younglearners.reviews.name1'),
+        rating: 5,
+        comment: t('younglearners.reviews.text1'),
+        date: "Jan 12, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 8,
+        name: t('younglearners.reviews.name2'),
+        rating: 5,
+        comment: t('younglearners.reviews.text2'),
+        date: "Feb 5, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 9,
+        name: t('younglearners.reviews.name3'),
+        rating: 5,
+        comment: t('younglearners.reviews.text3'),
+        date: "Mar 20, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      
+      // General course reviews
+      {
+        id: 10,
+        name: "Leslie M",
+        rating: 5,
+        comment: t('testimonial.comment.1'),
+        date: "Feb 28, 2024",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 11,
+        name: "Maria C",
+        rating: 5,
+        comment: t('testimonial.comment.2'),
+        date: "Jun 19, 2023",
+        avatar: "/assets/images/profile.webp"
+      },
+      {
+        id: 12,
+        name: "Gaelle",
+        rating: 5,
+        comment: t('testimonial.comment.4'),
+        date: "Mar 26, 2024",
+        avatar: "/assets/images/profile.webp"
+      }
+    ];
+    
+    return combinedTestimonials;
+  };
+  
+  const testimonials: Testimonial[] = getTestimonials();
 
   const visibleTestimonials = showAll ? testimonials : testimonials.slice(0, 6);
 
@@ -91,13 +161,19 @@ export default function TestimonialSection() {
             className="text-3xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4"
             variants={fadeUpVariants}
           >
-            {t('testimonial.title')}
+            {courseType === 'private' ? t('private.reviews.title') :
+             courseType === 'groupclass' ? t('groupclass.reviews.title') :
+             courseType === 'younglearners' ? t('younglearners.reviews.title') :
+             t('testimonial.title')}
           </motion.h2>
           <motion.p 
             className="text-gray-600 max-w-2xl mx-auto"
             variants={fadeUpVariants}
           >
-            {t('testimonial.description')}
+            {courseType === 'private' ? t('private.reviews.description') :
+             courseType === 'groupclass' ? t('groupclass.reviews.description') :
+             courseType === 'younglearners' ? t('younglearners.reviews.description') :
+             t('testimonial.description')}
           </motion.p>
         </motion.div>
         
@@ -115,21 +191,7 @@ export default function TestimonialSection() {
             >
               {/* Avatar and name */}
               <div className="flex items-center mb-2">
-                <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
-                  <div className="w-full h-full bg-gray-300 relative">
-                    <Image 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        // Fallback if image fails to load
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                </div>
+                {/*  */}
                 <h3 className="font-medium text-gray-900">{testimonial.name}</h3>
               </div>
               
@@ -153,7 +215,7 @@ export default function TestimonialSection() {
               {/* Read more link */}
               <div className="flex justify-between items-center">
                 <button className="text-gray-600 hover:text-gray-900 text-sm font-medium">
-                  {t('blog.readMore')}
+                  {t('testimonial.readMore')}
                 </button>
                 <span className="text-gray-500 text-sm">{testimonial.date}</span>
               </div>
@@ -174,7 +236,7 @@ export default function TestimonialSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Load more
+              {t('testimonial.readMore')}
             </motion.button>
           </motion.div>
         )}
